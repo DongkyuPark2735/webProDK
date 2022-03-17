@@ -9,10 +9,11 @@ public class Man {
 
 	public Man() {
 	}// 디폴트 생성자 함수
-	//매서드의 오버로딩은 매서드의 매개변수 타입이나 갯수로 구분함
-	//같은 자료형과 같은 매개변수 갯수로는 구분할수 없음
+		// 매서드의 오버로딩은 매서드의 매개변수 타입이나 갯수로 구분함
+		// 같은 자료형과 같은 매개변수 갯수로는 구분할수 없음
+
 	public Man(int age) {
-			this.age = age;			
+		this.age = age;
 	}
 
 	public Man(int age, int height, double weight, String phoneNum) {
@@ -31,4 +32,39 @@ public class Man {
 
 		System.out.println("파라미터가 3개짜리 함수 호출");
 	}
+
+	// 메소드
+	public double calculateBMI() {
+		double result = weight / ((height / 100.0) * (height / 100.0));
+		return result;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public void setHeight(int height) {
+		this.height = height;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+    public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+	
+	
+	public int getAge() {
+		return age;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	
 }
