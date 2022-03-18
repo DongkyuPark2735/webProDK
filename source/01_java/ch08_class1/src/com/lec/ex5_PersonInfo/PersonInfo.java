@@ -15,8 +15,8 @@ public class PersonInfo {
 	}
 
 	public void print() {//출력 매서드
-
 		System.out.println("이름 :" + this.name + ", 나이 :" + age + ", 성별 : " + gender);
+
 
 	}
 

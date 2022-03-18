@@ -1,48 +1,58 @@
-package com.lec.ex0_janmuri;
+package com.lec.student;
 
-//public class Quiz2{
-	
-//}
-public class Quiz1{ // 데이터
+public class Student {
+
 	private String name;
 	private int kor;
 	private int eng;
 	private int mat;
 	private int sum;
 	private double avg;
+	private static int countNum;
+	private int no;
 
-	public Quiz1() {// 기본생성자
+	public Student() {
 	}
 
-	public Quiz1(String name, int kor, int eng, int mat) {// 매개변수 있는 생성자
+	public Student(String name, int kor, int eng, int mat) {
+		no = ++countNum;
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
 		this.mat = mat;
 	}
-
 	public int subTotal() {
-//		sum = kor + eng + mat;
 		return kor + eng + mat;
 	}
 
 	public double averige() {
-//		avg = ((kor + eng + mat) / 3.0);
 		return ((kor + eng + mat) / 3.0);
 	}
 
-	public String perInfo() {
-		return ("   "+name+ "\t" + kor+"\t" + eng+"\t" + mat+"\t"+subTotal()+"\t"+averige() );
+	public static void textPrint() {
+		for (int i = 0; i < 50; i++) {
+			System.out.print('■');
+		}
+		System.out.println("\n\t\t\t성적표 ");
+		for (int i = 0; i < 50; i++) {
+			System.out.print('-');
+		}
+		System.out.println("\n 번호\t이름\t" + "국어\t" + "영어\t" + "수학\t" + "총점\t" + "평균");
+		for (int i = 0; i < 50; i++) {
+			System.out.print('-');
+		}
+		System.out.println();// String?
+
+	}
 	
+	public void totPrint() {
+		
 	}
+	
+	public String perInfo() {
 
-//
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		return String.format(" %d"+"\t%s" +"\t%d" +"\t%d" +"\t%d" +"\t%d" +"\t%.2f",no, name, kor, eng,mat,subTotal(),averige());
+					
 	}
 
 	public int getKor() {
