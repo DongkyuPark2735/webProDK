@@ -1,12 +1,12 @@
-package com.lec.ex07_book1;
+package com.lec.ex07_book2;
 
 import java.util.Scanner;
 
 public class TestMain {
 	public static void main(String[] args) {
 
-		Book[] b1 = { new Book("111", "java", "홍길동"), new Book("222", "oracle", "신길동"), new Book("333", "mysql", "유길동"),
-				new Book("444", "web", "고길동"), new Book("555", "jsp", "김길동") };
+		BookLip[] b1 = { new BookLip("111", "java", "홍길동"), new BookLip("222", "oracle", "신길동"), new BookLip("333", "mysql", "유길동"),
+				new BookLip("444", "web", "고길동"), new BookLip("555", "jsp", "김길동") };
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -31,7 +31,7 @@ public class TestMain {
 					System.out.println("현재 보유하지 않은 도서입니다.");
 				} else {// book[idx] 도서를 대출처리
 						// 3.책상태확인
-					if (b1[idx].getState() == Book.STATE_BORROWED) {// 대출불가 상태
+					if (b1[idx].getState() == BookLip.STATE_BORROWED) {// 대출불가 상태
 						System.out.println("현재 대출중인 도서입니다.");
 					} else {// 대출가능상태
 							// 4.대출인 입력 5. 대출일 입력 6. 대출매소드 호출
@@ -63,7 +63,7 @@ public class TestMain {
 				break;
 			case 3:
 				System.out.println("책 리스트는 다음과 같습니다.");
-				for (Book i : b1) {
+				for (BookLip i : b1) {
 					i.printState();
 				}
 
