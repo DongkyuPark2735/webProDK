@@ -13,7 +13,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		if (name == null && tel == null && address == null) {
+		if (name.equals(null)) {
 			return "가입된 회원이 하나도 없습니다.";
 		}
 		return String.format("%s\t%s\t%s\n", name, tel, address);
