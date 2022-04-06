@@ -12,8 +12,9 @@ public class Ex02_inputStreamByteArray {
 	public static void main(String[] args) {
 		InputStream is = null;
 		try {
-			is = new FileInputStream("txtFile/inTest.txt");// 1.파일 연다
+			is = new FileInputStream("txtFile/outTest.txt");// 1.파일 연다
 			byte[] bs = new byte[10];
+			
 			while (true) { // 2.파일 읽는다
 				int readByteCount = is.read(bs); // 10 byte씩 읽기
 				if (readByteCount == -1)//Hi가 10개가 안됨 전에 읽은 남은 배열 byte가져옴    

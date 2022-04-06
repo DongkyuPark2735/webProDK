@@ -15,15 +15,15 @@ public class Ex05_filecopyStep1 {
 		try {
 			is = new FileInputStream("d:\\webProDK\\T.jpg");// 1
 			os = new FileOutputStream("d:/webProDK/T_copyed.jpg");
-			int cnt = 0;
+//			int cnt = 0;
 			while (true) {
 				int i = is.read(); // 1 byte씩 읽기
 				if (i == -1)
 					break;
 				os.write(i);
-				cnt++;
+//				cnt++;
 			}
-			System.out.println(cnt + "번 while문 실행하여 힘들게 복사 성공");
+//			System.out.println(cnt + "번 while문 실행하여 힘들게 복사 성공");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
