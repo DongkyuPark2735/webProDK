@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.event.WindowAdapter;
 
 public class Ex01MyFrame extends Frame{
 	private Button btn;
@@ -30,5 +31,6 @@ public class Ex01MyFrame extends Frame{
 	}
 	public static void main(String[] args) {
 		new Ex01MyFrame("fist GUI");
+		
 	}
 }

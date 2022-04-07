@@ -13,6 +13,9 @@ public class Ex04_outputStream {
 			os = new FileOutputStream("txtFile\\outTest.txt");// 폴더 없을때 예외발생
 			String str = "Hello, Java\n이 시국에 모두 건강하세요";
 			byte[] bs = str.getBytes();//String을 byte계열로 바꾸는 함수
+			for(byte b : bs) {
+				System.out.println(b);	
+			}
 			os.write(bs);//내부적으로 bs배열 출력
 			System.out.println("파일 출력 성공 ");
 		} catch (FileNotFoundException e) {
