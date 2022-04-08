@@ -19,14 +19,14 @@ public class Ex02 extends JFrame implements ActionListener {
 //	private JPanel jpanel;//컨테이너 얻어올 변수
 	private Container contenPane;// 컨테이너 얻어올 변수
 	private ImageIcon icon; // 버튼에 들어갈 icon
-	private JButton jbtn;
+	private JButton jbtn;	//
+	private JButton jbtnExit;	//종료 아이콘
 	private JTextField jtxtField;
 	private Vector<String> items;// 컴보박스에 들어갈 item리스트(item이 가변적일때는 Vector)고정적일땐 String배열
 	private String[] item = { "A", "B", "C" };
 	private JComboBox<String> jCombo;
 	private JCheckBox jCheck;
 	private JLabel jlBlank; // 빈라벨
-	private JButton jbtnExit;
 
 	// 생성자 : 컨테이너 얻어와서 layout 셋팅 -> 컴포넌트 생성후 add ->
 	// setVisible, serSize(화면구현 )-> 이벤트 추가
