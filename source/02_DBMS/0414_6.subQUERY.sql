@@ -1,0 +1,171 @@
+-- 서브쿼리 QUERY 안에 QUERY
+-- SELECT 필드 1, 필드 2 (SELECT 필드 FROM 테이블 WHERE 조건) 대부분 절에 들어갈수있는데 보통 WHERE절에 씀
+--      FROM 테이블 (SELECT 필드 FROM 테이블 WHERE 조건)
+--      WHERE 조건 (SELECT 필드 FROM 테이블 WHERE 조건)
+
+--SELECT 절에 들어가는 서브쿼리는 1행 1열만 짜리만
+
+
+--1 서브 쿼리 개념
+--서브쿼리의 필요성 : 급여 제일 많이 받는 사람의 사번, 이름, 직책과 급여
+SELECT MAX(SAL) FROM EMP;
+SELECT EMPNO, MAX(SAL) FROM EMP GROUP BY EMPNO;
+--밖에 
+SELECT MAX(SAL) FROM EMP;--서브쿼리
+
+SELECT EMPNO, ENAME, JOB, SAL 
+    FROM EMP
+    WHERE SAL != (SELECT MAX(SAL) FROM EMP); -- 메인쿼리(서브쿼리는 괄호로 묶어야함)
+
+--서브쿼리의 종류(1) 단일행 서브쿼리(서브쿼리 결과가 단일행) : =, >, >= ,<,<= ,!= 연산자 가능
+    --EX. SCOTT이 근무하는 부서이름 출력 
+SELECT DEPTNO FROM EMP WHERE ENAME = 'SCOTT'; --서브쿼리
+
+SELECT DNAME 
+    FROM DEPT 
+    WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME = 'SCOTT'); --메인쿼리
+SELECT DNAME FROM EMP E, DEPT D WHERE E.DEPTNO = D.DEPTNO AND ENAME ='SCOTT'; 
+--서브쿼리의 종류(2) 다중행 서브쿼리(서브쿼리 결과 2행 이상) : IN, ANY, ALL, EXISTS
+    -- EX. JOB이 MANAGER인 사람의 부서이름 
+SELECT DEPTNO FROM EMP WHERE JOB='MANAGER'; --서브쿼리
+SELECT DNAME FROM DEPT
+    WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE JOB='MANAGER');
+
+
+-- 2.. 단일행 서브쿼리 
+-- 서브쿼리 먼저 만들어보고 테스트 해본후 결과값이 하나인지 하나이상인지에 따라 메인쿼리 만듬
+    -- 아래 문제 전처리 
+SELECT * FROM DEPT;
+SELECT * FROM EMP;
+SELECT E.DEPTNO, LOC FROM EMP E, DEPT D 
+    WHERE E.DEPTNO = D.DEPTNO AND ENAME='SCOTT';
+INSERT INTO DEPT VALUES(50, 'IT', 'DALLAS');
+INSERT INTO EMP (EMPNO, ENAME, DEPTNO) VALUES (9999, '홍길동', 50);
+ROLLBACK; --데이터 추가 취소(DML -데이터 추가, 수정, 삭제)
+    -- EX. SCOTT과 같은 부서번호인 사람의 이름과 급여 
+SELECT DEPTNO FROM EMP WHERE ENAME = 'SCOTT';
+SELECT ENAME, SAL FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME = 'SCOTT') AND ENAME != 'SCOTT';
+    --EX.SCOTT과 같은 근무지인 사람의 이름과 급여
+SELECT LOC FROM DEPT D, EMP E WHERE D.DEPTNO=E.DEPTNO AND E.ENAME = 'SCOTT';  
+SELECT ENAME, SAL
+    FROM EMP E, DEPT D
+    WHERE E.DEPTNO = D.DEPTNO AND 
+               LOC=(SELECT LOC FROM DEPT D, EMP E WHERE D.DEPTNO=E.DEPTNO AND E.ENAME = 'SCOTT') AND ENAME <> 'SCOTT';
+
+-- 최초 입사일과 최초 입사한 사람 이름
+SELECT MIN(HIREDATE) FROM EMP;
+SELECT HIREDATE, ENAME 
+    FROM EMP
+    WHERE HIREDATE = (SELECT MIN(HIREDATE) FROM EMP);
+ 
+-- 최근 입사일과 최근 입사한 사람 이름  
+SELECT MAX(HIREDATE) FROM EMP;
+SELECT HIREDATE , ENAME 
+    FROM EMP
+    WHERE HIREDATE = (SELECT MAX(HIREDATE) FROM EMP);
+ 
+-- 최초 입사일과 최초 입사한 사람 이름  최근 입사일과 최근 입사한 사람 이름  
+--SELECT MIN(HIREDATE) "최초", MAX(HIREDATE) "최근" FROM EMP;
+--SELECT (SELECT HIREDATE, ENAME  FROM EMP  WHERE HIREDATE = (SELECT MIN(HIREDATE) FROM EMP)
+--            (SELECT HIREDATE , ENAME  FROM EMP WHERE HIREDATE = (SELECT MAX(HIREDATE) FROM EMP)
+--               FROM DUAL;    
+SELECT E1.HIREDATE, E1.ENAME, E2.HIREDATE, E2.ENAME 
+        FROM EMP E1, EMP E2
+        WHERE E1.HIREDATE = (SELECT MIN(HIREDATE) FROM EMP) 
+            AND E2.HIREDATE = (SELECT MAX(HIREDATE) FROM EMP);
+
+    --EX. SCOTT과 같은 부서에 근무하는 사람들의 급여합
+SELECT DEPTNO FROM EMP WHERE ENAME = 'SCOTT';
+
+SELECT SUM(SAL)
+    FROM EMP
+    WHERE DEPTNO= (SELECT DEPTNO FROM EMP WHERE ENAME = 'SCOTT');
+    --EX. SCOTT과 동일한 직책(JOB)을 가진 사원의 모든 필드
+SELECT JOB FROM EMP WHERE ENAME='SCOTT';
+SELECT *
+    FROM EMP
+    WHERE JOB=(SELECT JOB FROM EMP WHERE ENAME='SCOTT');
+    --EX. DALLAS 에서 근무하는 사원의 이름, 부서번호 
+SELECT DEPTNO
+    FROM DEPT
+    WHERE LOC ='DALLAS';
+SELECT ENAME, DEPTNO
+    FROM EMP
+    WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE LOC ='DALLAS');
+    --EX KING이 직속상사인 사원의 이름과 급여
+    
+SELECT EMPNO FROM EMP WHERE ENAME = 'KING';
+
+SELECT ENAME, SAL 
+    FROM EMP 
+    WHERE MGR = (SELECT EMPNO FROM EMP WHERE ENAME = 'KING'); 
+
+SELECT E1.ENAME, E1.SAL
+    FROM EMP E1, EMP E2
+    WHERE E1.MGR = E2.EMPNO AND E2.ENAME = 'KING'; 
+
+--EX. 평균급여 이하로 받는 사원의 이름과 급여를 출력
+SELECT ENAME, SAL
+    FROM EMP
+    WHERE SAL <= (SELECT AVG(SAL) FROM EMP);
+--EX2. 평균급여 이하로 받는 사원의 이름, 급여, 평균급여 출력
+SELECT ENAME, SAL, TRUNC((SELECT AVG(SAL) FROM EMP)) "평균급여"
+    FROM EMP
+    WHERE  SAL <= (SELECT AVG(SAL) FROM EMP);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
