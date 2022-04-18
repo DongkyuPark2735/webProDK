@@ -309,3 +309,178 @@ DROP TABLE MY_DATA;
 
 
 
+-- 제약조건 : 부적합한 데이터가 테이블에 삽입, 수정되는것을 방지하기위해 
+-- PRIMAY KEY값은 수정 삽입 불가 
+
+SELECT * FROM EMP; 
+INSERT INTO EMP VALUES(7369, '홍', NULL, NULL, SYSDATE, NULL, NULL, 40); -- SMITH 
+UPDATE EMP SET EMPNO = 7369 WHERE ENAME = 'ALLEN'; --SMITH 사번과 중복 에러
+-- (1) RRIMARY KEY : 유일하게 테이블의 각행을 식별. NOT NULL
+--주키가 두개면 하나가 중복이어도 다른 하나가 중복이 아니면 됨 
+INSERT INTO EMP(EMPNO , ENAME, DEPTNO) VALUES(7369, '홍', 40); -- 중복된 사번 입력 불가 
+
+-- (2) NOT NULL : NULL값을 포함하지 않음 
+
+-- (3) UNIQUE : 모든 행에 대해 유일해야, NULL값을 허용(NULL은 여러행 입력가능)
+
+-- (4) FOREIGN KEY : 테이블의 열은 다른 테이블의 열을 참조 (EX. EMP테이블의 DEPTNO는 DEPT 테이블의 DEPTNO를 참조)
+    -- 비식별관계 : 부모테이블의 PRIMARY KEY가 자식테이블의 일반속성에 속한 필드로(exERD에서 빨간점선 화살표) 
+    -- 식별관계 : 부모테이블의 PRIMARY KEY가 자식테이블의 PRIMARY KEY(주키군)에 속한 필드로 관계(exERD에서 초록점선 화살표) 
+INSERT INTO EMP (EMPNO, ENAME, DEPTNO)VALUES (1111, '홍', 90); --  외래키 -- DEPT테이블에 90번 부서가 없음 -- 기준에 있는 값을 넣어야함  
+                                                                                    
+                                                                                
+                                                                                
+
+
+-- (5) CHEK(조건) : 해당 조건이 만족해야 INSERT( NULL값 허용)
+
+-- DEFAULT : 해당 열의 데이터 입력값이 없으면 NULL이 들어가나 NULL값대신에 기본값 --제약조건은 아니다  
+
+
+
+
+
+
+DROP TABLE DEPT1; -- 같은 이름의 테이블이 있는지 삭제해서 확인 
+CREATE TABLE DEPT1(
+    DEPTNO NUMBER(2) PRIMARY KEY,
+    DNAME VARCHAR2(14) UNIQUE,  --똑같은 이름 불가 NULL값은 가능 
+    LOC VARCHAR2(13) NOT NULL
+);
+-- DEPT1은 EMP1의 부모PARENT 테이블 EMP1이 DEPT1을참고하고있음 
+-- 부모테이블은 자식테이블을 먼저 지워야 DROP가능 
+
+DROP TABLE EMP1;
+CREATE TABLE EMP1(
+    EMPNO      NUMBER(4)     PRIMARY KEY,
+    ENAME       VARCHAR2(10) NOT NULL,
+    JOB           VARCHAR2(9)  NOT NULL,
+    MGR          NUMBER(4),
+    HIREDATE    DATE            DEFAULT SYSDATE, -- 입력하지않으면 지금날짜 기본값으로 들어감
+    SAL           NUMBER(7,2)   CHECK(SAL>0),
+    COMM       NUMBER(7,2),
+    DEPTNO      NUMBER(2)     REFERENCES DEPT1(DEPTNO) -- 반드시 DEPT의 DEPTNO 값에 해당하는 값을 넣어야함  
+);
+
+DROP TABLE EMP1; -- 자식테이블 먼저 DROP
+DROP TABLE DEPT1; -- EMP1테이블이 참조하고 있어서 삭제 불가 
+DROP TABLE DEPT1 CASCADE CONSTRAINTS; -- 권장하지않음 (참조하는 테이블이 있어도 무시하고 DROP)
+
+CREATE TABLE DEPT1(
+    DEPTNO NUMBER(2),
+    DNAME VARCHAR2(14),
+    LOC VARCHAR2(13) NOT NULL, --NOT NULL은 밑에 불가
+    PRIMARY KEY(DEPTNO),
+    UNIQUE(DNAME));
+    
+CREATE TABLE EMP1(
+    EMPNO NUMBER(4), 
+    ENAME VARCHAR2(10) NOT NULL,
+    JOB VARCHAR2(9),
+    MGR NUMBER(4),
+    HIREDATE DATE DEFAULT SYSDATE,
+    SAL NUMBER(7,2),
+    COMM NUMBER(7,2),
+    DEPTNO NUMBER(2), -- 부모테이블로부터 DEPTNO를 외래키로 받음, 외래키로 받아진 PRIMARY키는 NULL가능함 
+    PRIMARY KEY(EMPNO),
+    CHECK(SAL >0),
+    FOREIGN KEY(DEPTNO) REFERENCES DEPT1(DEPTNO));
+
+SELECT * FROM DEPT1;
+SELECT * FROM EMP1;
+
+INSERT INTO DEPT1 SELECT * FROM DEPT;
+INSERT INTO DEPT1 VALUES (40, 'IT', 'SEOUL'); -- PK 위배
+INSERT INTO DEPT1 VALUES (50, 'SALES', 'SEOUL'); -- UNIQUE 위배
+INSERT INTO DEPT1 VALUES (50, 'IT', NULL); -- NOT NULL 위배
+
+INSERT INTO EMP1(EMPNO, ENAME, DEPTNO)
+    VALUES (1001, '홍', 10); --HIREDATE에 설정된 기본값 들어감 
+INSERT INTO EMP1(EMPNO, ENAME, DEPTNO)
+    VALUES (1001, '김', 10); -- PK 위배
+INSERT INTO EMP1 (EMPNO, DEPTNO)
+    VALUES (1002, 20); --ENAME인 NOT NULL위배 
+INSERT INTO EMP1(EMPNO, ENAME, SAL)
+    VALUES (1002, '박', -1); -- SAL>0 위배
+INSERT INTO EMP1 VALUES (1002, '윤', NULL, NULL, TO_DATE('95/01/01', 'YY/MM/DD'), 900, NULL, 99); --FK 위배
+
+
+-- 연습문제 (PDF 4,5 PAGE)
+
+--4 PAGE
+-- BOOKCATEGORY 삭제 및 생성
+DROP TABLE BOOKCATEGORY; 
+
+CREATE TABLE BOOKCATEGORY(
+    CATEGORY_CODE NUMBER(3) PRIMARY KEY,
+    CATEGORY_NAME VARCHAR2(50) UNIQUE,
+    OFFICE_LOC VARCHAR2(50) NOT NULL
+);
+SELECT * FROM BOOKCATEGORY;
+
+-- BOOK 삭제 및 생성
+DROP TABLE BOOK; 
+
+CREATE TABLE BOOK(
+    CATEGORY_CODE NUMBER(3) REFERENCES BOOKCATEGORY(CATEGORY_CODE),
+    BOOKNO VARCHAR2(20) NOT NULL,
+    BOOKNAME VARCHAR2(50),
+    PUBLISHER VARCHAR2(50),
+    PUBYEAR NUMBER(4) DEFAULT EXTRACT(YEAR FROM SYSDATE) 
+);
+SELECT * FROM BOOK;
+
+-- BOOKCATEGORY 데이터 생성
+INSERT INTO BOOKCATEGORY VALUES (100, '철학', '3층 인문실');
+INSERT INTO BOOKCATEGORY VALUES (200, '인문', '3층 인문실');
+INSERT INTO BOOKCATEGORY VALUES (300, '자연과학', '4층 과학실');
+INSERT INTO BOOKCATEGORY VALUES (400, 'IT', '4층 과학실');
+-- BOOK 데이터 생성
+INSERT INTO BOOK VALUES(100, '100A01', '철학자의 삶', '더존출판' ); -- 오류 디폴트값빼고 행을 명시해줘야??
+INSERT INTO BOOK(CATEGORY_CODE, BOOKNO, BOOKNAME, PUBLISHER) 
+    VALUES(100, '100A01', '철학자의 삶', '더존출판' );
+INSERT INTO BOOK
+    VALUES(400, '400A01', '이것이 DB다', '더존출판', 2018 );
+    
+DELETE FROM BOOK WHERE BOOKNO = '400A01' AND PUBYEAR = 2022;
+    
+
+--5PAGE 
+-- MAJOR 삭제 및 생성
+DROP TABLE MAJOR;
+
+CREATE TABLE MAJOR(
+    MAJOR_CODE NUMBER(1) PRIMARY KEY,
+    MAJOR_NAME VARCHAR2(30) UNIQUE,
+    MAJOR_OFFICE_LOC VARCHAR2(30) NOT NULL
+);
+SELECT * FROM MAJOR;
+
+-- MAJOR 데이터 생성
+INSERT INTO MAJOR VALUES( 1, '경영정보', '경영관 305호');
+INSERT INTO MAJOR VALUES( 2, '소프트웨어 공학', '정보관 808호');
+INSERT INTO MAJOR VALUES( 3, '디자인', '예술관 606호');
+INSERT INTO MAJOR VALUES( 4, '경제', '경상관 202호');
+
+-- STUDENT 삭제 및 생성
+DROP TABLE STUDENT; 
+
+CREATE TABLE STUDENT(
+    STUDENT_CODE VARCHAR2(10),
+    STUDENT_NAME VARCHAR2(20),
+    SCORE NUMBER(3) CHECK(SCORE BETWEEN 0 AND 100),
+    MAJOR_CODE NUMBER(1) REFERENCES MAJOR(MAJOR_CODE)
+);
+
+SELECT * FROM STUDENT;
+
+-- STUDENT 데이터 생성
+INSERT INTO STUDENT VALUES('A01', '김길동', 100, 1);
+INSERT INTO STUDENT VALUES('A02', '문길동', 90, 2);
+INSERT INTO STUDENT VALUES('A03', '홍길동', 95, 1);
+INSERT INTO STUDENT VALUES('A03', '홍길동', 101, 1); --에러 
+
+
+
+
+
