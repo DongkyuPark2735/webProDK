@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="solutionSelectionDialog">
-		<item value="1" key="applyScope"/>
+		<item value="2" key="applyScope"/>
 	</section>
 	<section name="solution">
+		<item value="defineDomainWithColumnDataType" key="unknownDomain"/>
 	</section>
 	<section name="com.tomato.exerd.core.wizard.NewEXerdWizard">
 	</section>
