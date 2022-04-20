@@ -1,0 +1,67 @@
+-- 인덱스 : 조회를 빠르게 하는 인덱스 목차, 순서
+
+SELECT * FROM USER_INDEXES; -- 딕셔너리 뷰에서 SCOTT이 소유한 인덱스 정보
+DESC EMP; -- 프라이머리키 기준으로 인덱스로 잡힘 
+
+SELECT * FROM EMP; -- 바이너리 트리 : B 트리?? 데이터의 가운데를 기준(중간데이터)으로 나무 형태로
+INSERT INTO EMP VALUES (7369, 'SMITH', 'CLERK', 7902, '80/12/17', 800, NULL, 20);
+
+
+DROP TABLE EMP01;
+SELECT * FROM EMP01;
+
+CREATE TABLE EMP01 AS SELECT * FROM EMP; -- EMP내용과 같은 EMP01생성
+
+INSERT INTO EMP01 SELECT * FROM EMP01; -- 1번(28행) 2번(56)행)  12번 수행
+
+SELECT COUNT(*) FROM EMP01;
+
+INSERT INTO EMP01 (EMPNO, ENAME, DEPTNO) VALUES (1111,'HONG', 40); -- 자료 수정 
+INSERT INTO EMP01 SELECT * FROM EMP01; -- 3번 수행(180만개 행)
+
+SELECT TO_CHAR(COUNT(*), '9,999,999') FROM EMP01;
+
+SELECT * FROM EMP01 WHERE ENAME='HONG'; -- 인덱스 생성 전 : 0.031
+SELECT * FROM EMP01 WHERE SAL >0;
+
+-- 인덱스 생성 (EMP01테이블의 ENAME)하고 조회
+CREATE INDEX IDX_EMP_ENAME ON EMP01(ENAME); -- 인덱스 생성 명령어 : 1.11초
+
+SELECT * FROM EMP01 WHERE ENAME='HONG'; -- 인덱스 생성후 : 0.005
+SELECT * FROM USER_INDEXES WHERE INDEX_NAME = 'IDX_EMP_ENAME'; -- 데이터 딕셔너리에 추가됨 
+
+COMMIT; --180만개 행
+
+INSERT INTO EMP01 SELECT * FROM EMP01; -- 인덱스 생성후 insert 속도 : 25.442
+DROP INDEX IDX_EMP_ENAME;
+ROLLBACK;
+INSERT INTO EMP01 SELECT * FROM EMP01; -- 인덱스 제거후 insert 속도 : 3.473
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
