@@ -52,9 +52,8 @@ public class PersonMng {
 					try {
 						if (pstmt != null)
 							pstmt.close();
-						if (pstmt != null)
-							pstmt.close();
 					} catch (SQLException e) {
+						System.out.println(e.getMessage());
 					}
 				}
 				break;
@@ -84,6 +83,13 @@ public class PersonMng {
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
+				}finally {
+					try {
+						if (pstmt != null)
+							pstmt.close();
+					} catch (SQLException e) {
+						System.out.println(e.getMessage());
+					}
 				}
 				break;
 			case "3":
@@ -111,11 +117,19 @@ public class PersonMng {
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
+				}finally {
+					try {
+						if (stmt != null)
+							stmt.close();
+					} catch (SQLException e) {
+						System.out.println(e.getMessage());
+					}
 				}
 				break;
 			}
 		} while (fn.equals("1") || fn.equals("2") || fn.equals("3"));
 		sc.close();
 		System.out.println("bye");
+		
 	}
 }

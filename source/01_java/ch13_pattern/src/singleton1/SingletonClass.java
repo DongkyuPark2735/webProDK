@@ -1,7 +1,5 @@
 package singleton1;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 public class SingletonClass {
 	private int i;
 	// 객체생성했으면 그 객체주소를 return하고
