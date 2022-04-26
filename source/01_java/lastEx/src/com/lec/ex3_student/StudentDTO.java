@@ -11,7 +11,7 @@ public class StudentDTO {
 
 	public StudentDTO() {
 	}
-
+	//학생 입력
 	public StudentDTO(String sname, String mname, int score) {
 		this.sname = sname;
 		this.mname = mname;
@@ -20,6 +20,13 @@ public class StudentDTO {
 
 	public StudentDTO(String rank, String sname, String mname, int score) {
 		this.rank = rank;
+		this.sname = sname;
+		this.mname = mname;
+		this.score = score;
+	}
+	//학생출력  학생수정
+	public StudentDTO(int sno, String sname, String mname, int score) {
+		this.sno = sno;
 		this.sname = sname;
 		this.mname = mname;
 		this.score = score;

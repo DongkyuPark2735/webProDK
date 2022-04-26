@@ -9,7 +9,7 @@ CREATE TABLE MAJOR(
 CREATE TABLE STUDENT(
     SNO NUMBER(7) PRIMARY KEY, 
     SNAME VARCHAR2(20) NOT NULL,
-    MNO NUMBER(2) REFERENCES MAJOR(MNO),
+    MNO NUMBER(2) REFERENCES MAJOR(MNO) NOT NULL,
     SCORE NUMBER(3) DEFAULT 0 CHECK (SCORE BETWEEN 1 AND 100),
     EXPEL NUMBER(1) DEFAULT 0 CHECK  (EXPEL IN (0,1))
 );
@@ -34,21 +34,22 @@ INSERT INTO STUDENT VALUES (TO_CHAR(SYSDATE, 'YYYY')||TRIM(TO_CHAR(STUDENT_SQ.NE
 INSERT INTO STUDENT VALUES (TO_CHAR(SYSDATE, 'YYYY')||TRIM(TO_CHAR(STUDENT_SQ.NEXTVAL, '009')), '윤길동', 10, 50, 0);
 
 SELECT * FROM STUDENT;
+commit;
 
---
+
 -- 0. 첫화면에 전공이름들 콤보박스에 추가(mName)
 -- :  public Vector<String> getMNamelist()
 SELECT MNAME FROM MAJOR;
 -- 1. 학번검색 (sNo, sName, mName, score)
 -- : public StudentDto sNogetStudent(String sNo)
-SELECT SNO, SNAME, MNAME, SCORE
-    FROM STUDENT S, MAJOR M 
-    WHERE S.MNO = M.MNO;
+    SELECT SNO, SNAME, MNAME, SCORE
+        FROM STUDENT S, MAJOR M 
+        WHERE S.MNO = M.MNO AND SNO = 2022002;
 -- 2. 이름검색 (sNo, sName, mName, score)
 -- :  public ArrayList<StudentDto> sNamegetStudent(String sName)
 SELECT SNO, SNAME, MNAME, SCORE
     FROM STUDENT S, MAJOR M 
-    WHERE S.MNO = M.MNO AND SNO = 2022001;
+    WHERE S.MNO = M.MNO AND SNAME = '홍길동';
 -- 3. 전공검색 (rank, sName(sNo포함), mName(mNo포함), score)
 -- : public ArrayList<StudentDto> mNamegetStudent(String mName)
 SELECT ROWNUM R, A.*
@@ -62,18 +63,21 @@ INSERT INTO STUDENT VALUES (TO_CHAR(SYSDATE, 'YYYY')||TRIM(TO_CHAR(STUDENT_SQ.NE
     (SELECT MNO FROM MAJOR WHERE MNAME = '인공지능학'), 90, 0);
 -- 5. 학생수정
 -- : public int updateStudent(StudentDto dto)
-UPDATE STUDENT SET SNO = 2022010, SNAME = '윤길수', MNO = 20, SCORE = 80
-    WHERE SNO = 2022001;
+UPDATE STUDENT SET SNAME = '윤장열',MNO = (SELECT MNO FROM MAJOR WHERE MNAME = '인공지능학'), SCORE = 80
+    WHERE SNO = 2022010;
 -- 6. 학생출력 (rank, sName(sNo포함), mName(mNo포함), score)
 -- : public ArrayList<StudentDto> getStudents()
-SELECT ROWNUM, A.*
-    FROM (SELECT SNAME, MNAME, SCORE FROM STUDENT S, MAJOR M WHERE S.MNO = M.MNO AND EXPEL != 1 ORDER BY SCORE DESC) A;
+SELECT ROWNUM R, A.*
+    FROM (SELECT SNAME||'('||SNO||')' NAME, MNAME||'('||S.MNO||')' MNAME, SCORE FROM STUDENT S, MAJOR M
+    WHERE S.MNO = M.MNO AND EXPEL != 1 ORDER BY SCORE DESC) A;
 -- 7. 제적자출력 (rank, sName(sNo포함), mName(mNo포함), score)
 -- : public ArrayList<StudentDto> getStudentsExpel()
-SELECT ROWNUM, A.*
-    FROM (SELECT SNAME, MNAME, SCORE FROM STUDENT S, MAJOR M WHERE S.MNO = M.MNO AND EXPEL != 0 ORDER BY SCORE DESC) A;
+SELECT ROWNUM R, A.*
+    FROM (SELECT SNAME||'('||SNO||')' NAME, MNAME||'('||S.MNO||')' MNAME, SCORE FROM STUDENT S, MAJOR M
+    WHERE S.MNO = M.MNO AND EXPEL != 0 ORDER BY SCORE DESC) A;
+
 -- 8. 제적처리 : public int sNoExpel(String sNo)
-UPDATE STUDENT SET EXPEL = 1 WHERE SNO = 2022002;
+UPDATE STUDENT SET EXPEL = 1 WHERE SNO = 2022002 AND SNAME = '윤장열' AND MNAME = '인공지능학' AND SCORE = 80;
 
 
 
