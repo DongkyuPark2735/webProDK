@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        span{ /*css선택자*/
+            color : #f00;  
+            font-weight : bold;         
+        }
+    </style>
+</head>
+<body>
+    <h1 id="top"> h 태그는 제목 태크입니다. 제목태그라 자동개행이 됨 </h1>test
+    <!--아이디는 중복될수없고 어디든 붙을수 있는 구문 태그-->
+    <h2> h 태그는 제목 태크입니다. 제목태그라 자동개행이 됨 </h2>
+    <h4> h4 태그도 제목태그 입니다. </h4>
+    <h5> h5 태그도 제목태그 입니다. </h5>
+    <h6> h6 태그도 제목태그 입니다. </h6>
+    <h7> &lt;h7&gt; 태그는 없습니다. 존재하지않는 태그는 인식하지않음</h7>
+    <!--특수문자는 &로 시작해서 입력-->
+    <br>h7 태그는 없습니다. 존재하지않는 태그는 인식하지않음
+
+    <p>
+        p태그는 단락태그입니다. p태그가 닫히면 <br />자동개행되고
+        다음 단락에서 약간 마진(밖여백)이 생깁니다.
+    </p>
+    <p>
+        국회의원의 선거구와 비례대표제 기타 선거에 관한 사항은 법률로 정한다. 국회는 의원의 자격을 심사하며, 의원을 징계할 수 있다. 모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다.
+    </p>
+    <p>
+        헌법재판소는 법률에 저촉되지 아니하는 범위안에서 심판에 관한 절차, 내부규율과 사무처리에 관한 규칙을 제정할 수 있다. 대통령은 국민의 보통·평등·직접·비밀선거에 의하여 선출한다.
+    </p>
+    <p>
+        <a href="http://www.google.com" target="_blank"> 구글(새창)</a><br />
+        <!--프로토콜이 없으면 파일명으로 인식-->
+        <a href="http://www.daum.net" target="_self"> 다음(현재창)</a><br />
+        <a href="www.daum.net" target="_self"> 다음(프로토콜 없으면 url로 인식 안함)</a><br />
+        <a href="0.기본태그 설명.html"> 어제 소스(현재창 기본값)</a><br />
+    </p>
+    <p>KOREA<i>이탤릭체</i></p>
+    <p>KOREA<b>진하게</b></p>
+    <p>KOREA<strong>진하게</strong></p>
+    <p>KOREA<sup>윗첨자</sup></p>
+    <p>KOREA<sub>아래첨자</sub></p>
+    <p>KOREA<ins>언더라인</ins></p>
+    <p><del>정가 10,000 DELETE LINE</del> 할인액 7000원(<span>30%</span>할인)</p>
+    <ruby>
+        大韓民國
+        <rt>대한민국</rt> <!--위에 작게 나옴-->
+    </ruby>
+    <br />
+    pre태그 영역은 그대로
+    화면에 표현됩니다.
+
+    <pre>
+    pre태그 영역은 그대로
+    화면에 표현됩니다. 
+    &lt;abc&gt; 꺽쇄괄호만 제외하고 나머지는 화면에 그대로 나타남
+    </pre>
+    <p>
+        브라우저 내에 space를 많이 넣고 싶으면&nbsp; &nbsp; &nbsp; &nbsp; 이렇게 처리
+                                            <!--&nbsp;는 하나의 space-->
+    </p>
+    <a href="#top"><span>맨위로</span></a>
+
+
+</body>
+</html>

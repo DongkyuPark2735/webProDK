@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1{
+            background-color : red;
+        }
+        #table2 {
+            background-color: blueviolet;
+        }
+        #table3 {
+            background-color: black;
+        }
+        
+        tr{
+            background-color : yellow;
+        }
+        caption{
+            background-color : lightgoldenrodyellow
+        }
+    </style>
+</head>
+<body>
+    <table id="table1">
+        <caption><b>table ex1</b></caption>
+        <tr>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>60</td>
+            <td>80</td>
+        </tr>
+    </table>
+    <table id="table2">
+        <caption><b>table ex2</b></caption>
+        <tr>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>60</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <th colspan="2">평균</th>
+            <td>80</td>
+        </tr>
+    </table>
+    <table id="table3">
+        <caption>table ex3</caption>
+        <tr>
+            <th rowspan="3">중간고사 성적</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>60</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <th colspan="2">평균</th>
+            <td>80</td>
+        </tr>
+    </table>
+</body>
+</html>
