@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        *{ /*전체선택자 : 모든 태크에 적용 : 전체 페이지 디자인 초기화 용도*/
+          margin : 0 ; /*밖여백*/
+          padding : 0 ; /*안여백*/
+          color : saddlebrown;
+          }
+        /*페이지 내 기본 폰트 설정*/
+        header, nav, section, footer{
+            width : 500px; /*가로사이즈*/
+            border : solid 1px gray;
+            margin : 10px auto; /*상 우 하 좌(시계방향)*/ 
+        }
+        header h1{ /*헤더 밑에 안에 있는 h1이라는뜻*/
+            text-align : center;
+        }
+        nav ul {
+            overflow : hidden; /*수평으로 하려는 태그의 부모단*/
+        }
+        nav ul li{ /*수직 li 를 수평 li로*/
+            float:left; /*block타입태그를 수평으로 배치*/
+            list-style : none;
+            /*padding : 10px 20px;*/
+            width : 125px; /*전체메뉴 나누기 with주고 가운데 정렬할것*/
+            text-align : center;
+        }
+        section{
+            clear : both; /*overflow:hidden을 잘 했으면 생략?*/
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>00 주식회사</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>회사소개</li>
+            <li>서비스</li>
+            <li>고객센터</li>
+            <li>공지사항</li>
+        </ul>
+    </nav>
+    <section>
+        <p>
+            전직 대통령 이명박씨(MB) 사면에 대한 반대 의견이 50%를 넘는다는 여론조사 결과가 2일 나왔다. 문재인 대통령은 MB 등에 대한 사면을 고심 중에 있다.
+            한국사회여론연구소(KSOI)와 TBS가 지난달 29~30일 성인 남녀 1012명을 대상으로 여론조사를 벌인 결과 이씨 사면에 ‘반대한다’는 응답은 51.7%, ‘찬성한다’는 응답은 40.4%를 기록했다.
+        </p>
+        <p>
+            반대 응답은 30대(62.5%), 40대(71.7%), 광주·전라(78.1%), 화이트칼라(59.5%), 진보성향층(76.6%), 민주당 지지층(85.2%), 이재명 투표층(83.8%)에서 높았다. 찬성 응답은 60세 이상(55.3%), 대구·경북(56.8%), 보수성향층(60.8%), 국민의힘 지지층(68.9%), 윤석열 투표층(68.2%)에서 상대적으로 높았다.
+            중도층은 반대 55.6%, 찬성 36.3%으로 집계됐다. 무당층에서는 반대 60.8%, 찬성 24.7%였다.
+        </p>
+    </section>
+    <footer>
+        <p>서울시 강남구 강남대로94길 13 좋은빌딩 402호</p>
+    </footer>
+</body>
+</html>

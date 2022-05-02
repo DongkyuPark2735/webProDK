@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        td{
+            border-top : 1px solid #0094ff;
+            text-align : center;
+            padding : 5px;
+        }
+    </style>
+    <script>
+        //form안에 title은 한글자 이상, name은 두글자 이상입력했는지 여부 판단
+        //frm.title.value가 한글자 이상, frm.name.value.length>1
+        //frm.title.value가 "" 이거나, frm.name.value.length =1이면  submit 불가
+        function chk() {  /*chk라는 function 함수 만듬*/
+            if (frm.name.value.length<2) {
+                alert('작성자명은 2글자 이상 입력하세요');
+                frm.name.focus();
+                return false;
+            }
+            return true; // 생략해도 기본적으로 submit이루어짐
+        }
+    </script>
+</head>
+<body>
+    <form name="frm" onsubmit="return chk()">
+        <table>
+            <caption><h2>게시판</h2></caption>
+            <tr>
+                <td>제목</td>
+                <td><input type="text" name="title" size="30" required="required" autofocus="autofocus"/></td>
+                <!--required="required" : 필수입력사항-->
+                <!--required="required"가 스크립트보다 먼저 실행되므로 통일성을 위해 스크립트만 쓰던지 required="required"만 쓰던지-->
+            </tr>
+            <tr>
+                <td>작성자</td>
+                <td><input type="text" name="name" size="30" /></td>
+            </tr>
+            <tr>
+                <td>본문</td>
+                <td><textarea name="content" rows="5" cols="34"></textarea>
+            </tr>
+            <tr>
+                <td>첨부파일</td>
+                <td><input type="file" name="filename"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="입력완료" />
+                    <input type="reset" value="입력취소" />
+                    
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

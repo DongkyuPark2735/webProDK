@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script></script>
+
+</head>
+<body>
+    전송안되는 파라미터<input type="text" name="noMsg" />
+    <form>
+        <p>전 화<input type="tel"placeholder="ex)010-1234-1234" name="tel" required="required" /></p>
+        <p>카 드<input type="text" placeholder="ex)0000-0000-0000-0000" name="cardno" /></p>
+        <p>업 무<input type="text" name="job" list="joblist" /></p>
+         <datalist id="joblist">
+            <option value="분석"></option>
+            <option>설계</option>
+            <option>구현</option>
+            <option>테스트</option>
+            <option>유지보수</option>
+         </datalist>
+        <p>업 무
+           <select name="job2">
+               <option value="분석">분석</option>
+               <option>설계</option>
+               <option>구현</option>
+               <option>테스트</option>
+               <option>유지보수</option>
+           </select>
+        </p>
+        <input type="hidden" name="no" value="99" /> <!--화면엔 안나오고 서밋시 값이 넘어감-->
+        <input type="submit" value="전송합니다." />
+    </form>
+</body>
+</html>
