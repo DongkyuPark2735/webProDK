@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap{
+            width : 750px;
+            margin : 0 auto;
+        }
+        #header{
+            text-align:center;
+            border-bottom : 2px solid gray;
+        }
+        #content{
+            border-bottom : 2px solid gray;
+        }
+        #content p:nth-child(2)::first-line, #content p:nth-child(3)::first-line{
+            color : cornflowerblue;
+            font-weight : bold;
+            font-size : 1.3em;
+        }
+        #content p:nth-child(2)::first-letter, #content p:nth-child(3)::first-letter{
+            font-size : 1.6em;
+        }
+        #content p:nth-child(2)::selection{
+            background-color : burlywood;
+            color : aquamarine;
+        }
+        #footer{
+            overflow:hidden;
+        }
+        #footer ul li{
+            list-style : none;
+            float: right;
+            padding : 5px;
+            margin : 5px 20px 5px 0;
+        }
+        #footer ul li:first-child{
+            padding : 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>제목이나 회사명</h1>
+        </div>
+        <div id="content">
+            <p>국무회의서 검수완박 법안 공포안 의결…문 대통령 “검찰 중립성 우려 해소되지 않아"</p>
+            <p>국민의힘 반대 속에 국회 본회의를 통과한 검찰 수사·기소권 분리 법안 공포안이 3일 국무회의에서
+               의결됐다. 문재인 대통령은 “검찰 수사의 정치적 중립성과 공정성, 선택적 정의에 대한 우려가 여전히
+               해소되지 않았고 국민의 신뢰를 얻기에 충분하지 않다는 평가가 있었다”고 말했다.</p>
+            <p>문 대통령은 이날 오후 2시25분부터 청와대에서 임기 마지막 국무회의를 주재하면서 
+               “(이러한 평가가) 국회가 수사와 기소의 분리에 한걸음 더 나아간 이유라고 생각한다”며 
+               이같이 말했다. 이날 국무회의에서는 더불어민주당이 당론으로 추진해 지난달 30일과 
+               이날 오전 각각 국회 본회의를 통과한 개정 검찰청법·형사소송법 공포안이 의결됐다.
+               개정안은 검찰이 수사를 개시할 수 있는 범죄를 부패·경제범죄로 규정해 검찰의 직접수사 범위를
+               축소하고 별건 수사를 금지하는 등 내용을 담고 있다</p>
+        </div>
+        <div id="footer">
+            <ul>
+                <li><img src="0503/address.png" alt="회사주소" /></li>
+                <li><img src="0503/logo.png" alt="회사주소" /></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

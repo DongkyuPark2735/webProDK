@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #header, #wrap, #footer{
+            width : 600px;
+            margin : 0 auto;
+            border : 1px solid gray;
+        }
+        #header{
+            overflow : hidden;
+        }
+        #header .logo{ /* #header .logo 띄어쓰기는 후손선택자 아래단 아무데나*/
+            float : left;
+            padding : 10px 30px 10px 100px;
+        }
+        #header>.name{ /*자손선택자(바로아래단) 아래단 아무데나가 아닌 바로 아래단만*/
+            float : left;
+            padding : 20px 30px 10px 70px;
+            background-color : rebeccapurple;
+            }
+        div p{ /*후손선택자(div 밑에 있는 p)*/
+            font-size : 20px; /*p태그의 기본 font-size는 16*/
+        }
+        div > p{ /*자손선택자 div바로 밑에있는 p*/
+            color : red;
+            font-size : 15px;
+        }
+        #footer{
+            text-align : center;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="logo">
+            <h1>LOGO</h1>
+        </div>
+        <div class="name">
+            <h2>00 주식회사</h2>
+        </div>
+    </div>
+    <div id="wrap">
+        <p>
+            문재인 대통령이 3일 오후 2시 국무회의를 소집했다. 문 대통령은 임기 마지막인 이날 국무회의에서 
+            ‘검수완박(검찰 수사권 완전 박탈)’ 법안을 공포(公布)할 것으로 전망된다.
+            청와대는 당초 이날 오전 10시로 예정된 정례 국무회의를 공지했었다. 하지만 같은 날 오전 국회 본회의에서
+            검수완박 법안이 통과되는 시점에 맞물리면서, 오후 4시로 국무회의를 미뤘다. 국무회의 시간은 이후 다시 
+            오후 2시로 당겨졌다. 오전 10시→오후 4시→오후 2시로 국무회의 일정이 계속해서 바뀐 셈이다.
+            이 때문에 문 대통령이 거부권을 행사하지 않고 검수완박 법안들을 공포할 것이란 관측이 나오고 있다. 
+            검수완박 법안들은 공포 후 4개월 이후 시행된다.
+        </p>
+        <ul>
+            <li><p>앞서 더불어민주당은 이날 오전 형사소송법 개정안을 강행처리했다.</p></li>
+            <li><p>형사소송법 개정안은 송치 사건에 대해 검찰이 ‘동일성을 해치지 않는 범위 내에서’ 보완수사 할 수 있다는 내용이 골자다</p></li>
+            <li><p>또 별건(別件)수사를 원칙적으로 금지하는 선언적 조항이 담겼다</p></li>
+
+        </ul>
+    </div>
+    <div id="footer">
+        <p>서울시 강남구 여사동 좋은빌딩 402호</p>
+    </div>
+</body>
+</html>

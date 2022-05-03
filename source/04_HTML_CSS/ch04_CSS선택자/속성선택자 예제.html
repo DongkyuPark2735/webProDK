@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #header{
+            width : 400px;
+            margin : 0 auto;
+            text-align : center;
+            color : burlywood;
+            overflow : hidden;
+        }
+        #footer {
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            color : cadetblue;
+            clear : both;
+        }
+        #section{
+            width : 450px;
+            margin : 0 auto;
+            text-align : center;
+            padding-bottom : 120px
+        }
+        #bookbmp, #bookgif, #bookjpg, #bookpng{
+            float : left;
+            margin : 0 3px 0 3px;
+        }
+        #section #bookbmp img{
+            border : 5px solid blue;
+        }
+        #section div[id$=gif] {
+            border: 5px solid red;
+        }
+        #section div[id$=jpg] {
+            border: 5px solid yellow;
+        }
+        #section div[id$=png] {
+            border: 5px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>
+            자바스크립트 책들
+        </h1>
+    </div>
+    <div id="section">
+        <div id="bookbmp">
+             <img src="0503_book/book.bmp" />
+        </div>
+        <div id="bookgif">
+            <img src="0503_book/book.gif" />
+        </div>
+        <div id="bookjpg">
+            <img src="0503_book/book.jpg" />
+        </div>
+        <div id="bookpng">
+            <img src="0503_book/book.png" />
+        </div>
+    </div>
+    <div id="footer">
+        <h3>서울시 ㅇㅇ구 ㅇㅇ동 ㅇㅇㅇ XX빌딩 ㅇ층</h3>
+    </div>
+
+</body>
+</html>

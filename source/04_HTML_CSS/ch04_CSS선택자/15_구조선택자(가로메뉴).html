@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #content{
+            width : 1000px; 
+            margin : 0 auto;
+            overflow : hidden;
+        }
+        #content ul li{
+            border : 2px solid gray;
+            float : left;
+            list-style : none;
+            margin : 1px;
+            padding : 10px;
+            text-align : center;
+            font-weight : bold;
+        }
+        #content ul li:nth-child(2n){
+            background-color : yellow;
+        }
+        #content ul li:nth-child(2n+1){
+            background-color : orange;
+        }
+        #content ul li:last-child{
+            border-radius: 0 20px 20px 0;
+            background-color : dimgray;
+        }
+        #content ul li:first-child{
+            border-radius: 20px 0 0 20px;
+            background-color : dimgray;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+            <li>menu7</li>
+            <li>menu8</li>
+        </ul>
+    </div>
+</body>
+</html>
