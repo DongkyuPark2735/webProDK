@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--웹 폰트 링크는 스타일 위에 넣어야한다-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        /*로컬폰트를 쓰려면 먼저 정의해야한다*/
+        @font-face {
+            font-family: 'AmaticSC-Regular';
+            src: url('AmaticSC-Regular.ttf');
+        }
+
+        p:nth-child(1) {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        p:nth-child(2) {
+            font-family: 'AmaticSC-Regular';
+            font-weight: bold;
+        }
+
+        p:nth-child(3) {
+            font-weight: bold;
+            font-family: 'Indie Flower', cursive;
+        }
+
+        p:nth-child(4) {
+            font-weight: bold;
+            font-family: 'Shadows Into Light', cursive;
+        }
+        p:nth-child(5)+h1{
+            font-family: 'East Sea Dokdo', cursive;
+        }
+    </style>
+</head>
+<body>
+    <p>Franklin Gothic Medium(system font)</p>
+    <p>AmaticSC-Regular(local font)</p>
+    <p>google font(web font)</p>
+    <p>google font(web font)</p>
+    <p><h1>한글 구글 폰트(web font)</h1></p>
+</body>
+</html>

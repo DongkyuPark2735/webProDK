@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{
+            width : 100px;
+            height : 100px;
+            border : 1px solid gray;
+            text-align : center;
+            font-weight : bold;
+        }
+        div:nth-child(1){
+            background-color : indianred;
+            display : block;
+        }
+        div:nth-child(2){
+            background-color : darkslategrey;
+        }
+        div:nth-child(3){
+            background-color : darkslateblue;
+            display : inline;
+            margin : 10px 10px 10px 10px; /*인라인이라서 좌우만, 한라인에 나와야하기때문 위아래 여백은 적용되지않는다*/
+        }
+        div:nth-child(4){
+            background-color : greenyellow; /*블록타입으로 주어야만 위아래 마진 패딩을 적용할수있다.*/
+            display : inline;
+        }
+        div:nth-child(5){
+            background-color : khaki;
+            display : none; /*화면에 안보이게 (공간도 안보임)*/
+        }
+        div:nth-child(6){
+            background-color : darksalmon;
+            display : inline-block; /*인라인이면서 블럭형태로 감 높이와 윗여백 아랫여백 지정가능*/
+        }
+        div:nth-child(7){
+            background-color : firebrick;
+            display : inline-block;
+        }
+        div:nth-child(8){
+            background-color : darkkhaki;
+            display : block;
+        }
+    </style>
+</head>
+<body>
+    <div>content1</div>
+    <div>content2</div>
+    <div>content3</div>
+    <div>content4</div><div>content5</div><div>content6</div><div>content7</div><div>content8</div>
+</body>
+</html>

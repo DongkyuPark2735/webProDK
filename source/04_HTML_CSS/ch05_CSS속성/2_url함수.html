@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /*url()용도 : 이미지 가져올때 font가져올떄*/
+        @font-face { /*로컬폰트설정*/
+            font-family: 'NanumSiUGwiYeoWeo';
+            src: url('NanumSiUGwiYeoWeo.ttf');
+        }
+        * {
+            font-family: 'NanumSiUGwiYeoWeo', Times, serif; /*해당폰트가 사용자에게 없을수있음 없을떄 오른쪽 대체 폰트*/
+        }
+        #wrap{
+            width : 800px;
+            margin : 10px auto;
+            height : 800px;
+            border : 1px solid gray;
+        }
+        #wrap #content {
+            width: 80%;
+            height: 100%;
+            border: 1px solid red;
+            margin: 0 auto;
+            /*background-image: url('0504/sul.jpg');
+            background-repeat: no-repeat;*/
+            /*background-position: center;*/
+            /*background-position: 100% 50%;
+            background-size: 100%;*/
+            background: url('0504/sul.jpg') center right no-repeat;
+            color: aliceblue;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+       <div id="content"><h1>설현도 내일 쉴까요? 설현도 내일 쉴까요? 설현도 내일 쉴까요?</h1></div>
+    </div>
+</body>
+</html>
