@@ -1,0 +1,189 @@
+﻿*{
+    padding : 0;
+    margin : 0;
+    font-weight : bold;
+}
+a{
+    text-decoration : none;
+    color : black;
+}
+li{
+    list-style : none;
+}
+div:not(.gnb, .inb), footer{
+    margin : 0 auto;
+}
+/*헤더*/
+/*gnb*/
+header .gnb{
+    background-color : black;
+    overflow : hidden;
+}
+header .gnb ul{
+    width : 1000px;
+    margin : 0 auto;
+}
+header .gnb ul li{
+    height : 30px;
+    width : 100px;
+    float : left;
+    text-align : center;
+    line-height : 30px;
+}
+header .gnb ul li a{
+    color : white;
+}
+/*logo*/
+header .logo{
+    clear :both;
+    width : 1000px;
+    text-align : center;
+}
+header .logo a{
+    border : 1px solid black;
+    width : 150px;
+    height : 100px;
+    display : inline-block;
+    line-height : 100px;
+    margin : 30px 0;
+}
+/*hitmenu*/
+header .hitmenu{
+    width : 1000px;
+    overflow : hidden;
+}
+header .hitmenu ul li{
+    float : right;
+    width : 80px;
+    height : 30px;
+    border : 1px solid gray;
+    text-align : center;
+    line-height : 30px;
+}
+header .hitmenu ul li:first-child {
+    border-radius : 0 20px 20px 0;
+}
+header .hitmenu ul li:last-child {
+    border-radius : 20px 0 0 20px;
+}
+/*inb*/
+header .inb {
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+header .inb ul {
+    height: 30px;
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+header .inb ul li {
+    float : left;
+    text-align : center;
+    line-height : 30px;
+    width : 125px;
+}
+/*content*/
+/*section1*/
+#content .section1{
+    overflow : hidden;
+    width : 1000px;
+}
+
+#content .section1 .slideBanner {
+    width: 698px;
+    height: 490px;
+    text-align: center;
+    line-height: 490px;
+    border: 1px solid black;
+    float: left;
+}
+#content .section1 .sideBanner {
+    width: 298px;
+    height: 490px;
+    text-align: center;
+    line-height: 490px;
+    border: 1px solid gray;
+    float : left
+}
+/*section2*/
+/*hitProduct*/
+#content .section2 {
+    overflow : hidden;
+    width : 1000px;
+}
+#content .section2 .hitProduct{
+    border : 1px solid gray;
+    height : 400px;
+}
+#content .section2 .hitProduct ul li{
+    float : left;
+    border : 1px solid gray;
+    width : 233px;
+    height : 400px;
+    margin : 0 7px;
+    text-align : center;
+    line-height : 400px;
+}
+/*mdProduct*/
+#content .section2 .mdProduct{
+    clear : both;
+    border : 1px solid gray;
+    height : 400px;
+}
+#content .section2 .mdProduct ul li{
+    float : left;
+    border : 1px solid gray;
+    width : 233px;
+    height : 400px;
+    margin : 0 7px;
+    text-align : center;
+    line-height : 400px;
+}
+#content .section2 div{
+    margin-bottom :10px;
+}
+/*footer*/
+footer{
+    overflow : hidden;
+    width : 1000px;
+}
+footer div:not(.copyright){
+    float : left;
+    text-align : center;
+    height : 100px;
+    width : 333px;
+    line-height : 100px;
+    border : 1px solid gray;
+    box-sizing : border-box;
+    margin-bottom : 10px; 
+}
+footer div:last-child{
+    margin-top : 20px;
+    background-color : black;
+    clear:both;
+    color: white;
+    text-align : center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

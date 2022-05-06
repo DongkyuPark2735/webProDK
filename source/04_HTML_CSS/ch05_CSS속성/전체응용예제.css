@@ -1,0 +1,123 @@
+﻿/*페이지초기화*/
+*{
+    margin : 0;
+    padding : 0;
+}
+div{
+    border : 1px solid black;
+    text-align : center;
+    margin: 5px;
+}
+li{
+    list-style : none;
+}
+a{
+    text-decoration:none;
+    color : aquamarine;
+}
+
+
+#wrap{
+    margin : 10px auto;
+    width : 800px;
+    position : relative; /*백그라운드용 기준*/
+}
+
+#header {
+    background-color: antiquewhite;
+    line-height: 80px;
+}
+#nav, #section{
+    overflow: hidden;
+    padding : 5px 0 0 30px;
+    /*height : 100px;*/
+}
+#wrap #nav ul{
+    /*margin : 10px auto;*/
+
+}
+
+
+#wrap #nav ul > li {
+    float: left;
+    background-color: cadetblue;
+    display: inline-block;
+    margin: 3px;
+    margin-bottom: 10px;
+    padding: 5px 10px 5px 10px;
+    width: 120px;
+    line-height: 30px;
+}
+#nav ul li:nth-child(1){
+    border-radius: 20px 0 0 20px;
+}
+#nav ul li:nth-child(5){
+    border-radius : 0 20px 20px 0;
+}
+#section div{
+    float : left;
+    height : 300px;
+}
+#section #content {
+    width : 74%;
+}
+#section #banner {
+    width: 22%;
+}
+#footer {
+    background-color: yellowgreen;
+    line-height: 80px;
+}
+
+/*백그라운드*/
+#backimg {
+    position: absolute;
+    background: url('0504/sulhyun.jpg') no-repeat center ;
+    background-size : cover;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left :0;
+    z-index : -1;
+    opacity : 0.5;
+    margin : 0;
+    padding : 0;
+}
+/*메뉴*/
+
+#wrap #nav ul li .submenu {
+    height: 100px;
+    display : none;
+    margin : 0;
+    padding : 10px 0 0 0;
+    position : relative;
+}
+
+#wrap #nav ul li .submenu li{
+    float : none;
+    display : block;
+    margin : 2px 2px 2px 0;
+    padding : 5px 10px 5px 0;
+    border-radius : 20px;   
+}
+#wrap #nav ul li:hover .submenu{
+    display : block;
+    position : absolute;
+}
+/*#wrap #nav ul:hover .submenu { 모든메뉴 보이게
+    display: block;
+    position: absolute;
+}*/
+
+#wrap #nav ul li:nth-child(5):hover .submenu2 {
+    background: url('0504/sul.jpg');
+    background-size : 100%;
+    width : 500px;
+    height : 500px;
+    position : absolute;
+    border-radius: 150px;
+}
+
+
+
+
