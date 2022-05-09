@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{
+            width : 300px;
+            height : 100px;
+            background-color : aquamarine;
+            display : none;
+        }
+        input[type='checkbox']:checked ~div{ /*상태선택자 :checked*/
+            display : block;
+        }
+        input[type='checkbox']{
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+    <label for="name">이름</label><input type="text" name="name" id="name" /><br />
+    <input type="checkbox" name="gender" id="m" />
+    <label for="m"><img src="imgEx1/menu.png" /></label> <!--클릭시 for에 명시된 곳으로-->
+    <br /><br /><br />
+    <div>
+        토글에 의해 나타났다 사라졌다 할 부분
+    </div>
+
+</body>
+</html>

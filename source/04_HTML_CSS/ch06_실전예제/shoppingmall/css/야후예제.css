@@ -1,0 +1,204 @@
+﻿@font-face {
+    font-family: 'Amarante-Regular';
+    src: url('../font/Amarante-Regular.ttf');
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family : 'Amarante-Regular';
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+/* header */
+/* headernav */
+/*gnb*/
+#headerNav {
+    background-color: #2d1152;
+    height: 25px;
+    overflow: hidden;
+    min-width : 1300px;
+}
+#headerNav .gnb ul li {
+    float: left;
+    width : 90px;  
+    text-align : center;
+}
+#headerNav .gnb ul li a, #headerNav .survivalFootball a {
+    color: white;
+    display: block;
+}
+/*survivalFootball*/
+#headerNav .survivalFootball li {
+    float: right;
+}
+#headerNav .survivalFootball ul li:first-child {
+    width: 220px;
+    height: 25px;
+    font-size: 15px;
+}
+#headerNav .survivalFootball ul li:nth-child(2) {
+    background: url('../image/survivalFootball.png') no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 25px;
+}
+/* headerInfo */
+#headerInfo {
+    margin: 10px auto;
+    width: 1000px;
+}
+#headerInfo div:not(.service) {
+    float: left;
+}
+#headerInfo .logo {
+    background: url('../image/yahoo_logo.png') no-repeat;
+    background-size: contain;
+    width: 180px;
+    height: 70px;
+}
+#headerInfo .search input[name=search] {
+    width: 400px;
+    height: 40px;
+    border-color: #3488d9;
+    outline : none;
+    margin-top : 10px;
+}
+#headerInfo .search input[name=searchsummit] {
+    background: url('../image/search_btn.png') no-repeat;
+    background-size: 100% 100%;
+    height: 40px;
+    width: 130px;
+    border: none;
+    color: white;
+    cursor : pointer;
+}
+#headerInfo .service{
+    text-align : center;
+
+}
+#headerInfo .service ul li {
+    float: right;
+    width: 90px;
+    line-height : 60px;
+}
+#headerInfo .service ul li a {
+    color: black;
+}
+/* content */
+#content {
+    clear: both;
+    margin: 10px auto;
+    width: 1000px;
+    text-align: center;
+}
+/* content */
+/* mainmenu */
+#content #mainMenu {
+    width: 155px;
+    float: left;
+}
+#content #mainMenu ul li {
+    width: 155px;
+    display: inline-block;
+    height: 45px;
+    text-align: left;
+    line-height: 50px;
+    padding-left: 20px;
+}
+#content #mainMenu ul li a {
+    color: black;
+    display: block;
+}
+/* #content #main */
+#content #main {
+    width: 600px;
+    float: left;
+}
+#content #main div, #content #mainBanner div {
+    border: 1px solid gray;
+    margin-bottom: 3px;
+    margin-left: 3px;
+}
+
+#content #main div:nth-child(1) {
+    height: 300px;
+    line-height: 300px;
+}
+#content #main div:nth-child(2) {
+    height: 150px;
+    line-height: 150px;
+}
+#content #main div:nth-child(3) {
+    background-color: #500095;
+    height: 50px;
+    padding-left: 20px;
+    text-align : center;
+}
+#content #main div:nth-child(3) ul li {
+    float: left;
+    line-height: 50px;
+    width : 90px;
+}
+#content #main div:nth-child(3) ul li:nth-child(3) {
+    width : 110px;
+}
+#content #main div:nth-child(3) ul li a {
+    color: white;
+    display: inline-block;
+}
+#content #main div:not(div:nth-child(1),div:nth-child(2),div:nth-child(3) ) {
+    height: 100px;
+}
+/* #content #mainBanner */
+#content #mainBanner div {
+    width: 230px;
+    float: left;
+}
+#content #mainBanner div:nth-child(1), #content #mainBanner div:nth-child(2) {
+    height: 100px;
+    line-height: 100px;
+        }
+#content #mainBanner div:nth-child(3), #content #mainBanner div:nth-child(4) {
+    height: 150px;
+    line-height: 150px;
+}
+#content #mainBanner div:last-child {
+    height: 200px;
+    line-height: 200px;
+}
+/* footer */
+footer {
+    clear: both;
+    margin: 0 auto;
+    width: 1000px;
+    height: 100px;
+    border: 1px solid gray;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 100px;
+}
+footer ul{
+    display: inline-block;
+    line-height : 15%;
+    padding-top : 20px;
+}
+footer ul li:first-child {
+    float: left;
+    background: url('../image/yahoo_logo.png');
+    background-size: cover;
+    width: 170px;
+    height: 60px;
+}
+footer ul li:last-child {
+    float: left;
+    background: url('../image/address.png') no-repeat;
+    background-size: contain ;
+    width: 480px;
+    height: 70px;
+}

@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"  name="viewport"
+          content="width=divice-width, initial-scale=1.0 user-scalable=yes,
+          maximum-scale=3.0, minimum-scale=0.7"/> <!--뷰포트?스마트폰과 테블릿pc는 반드시 해야함 // 전체 레이아웃의 성격을 정함-->
+    <title></title>
+  <style>
+      *{
+          margin : 0;
+          padding : 0;
+      }
+      li{
+          list-style : none;
+      }
+      a{
+          text-decoration : none;
+      }
+      /*header*/
+      header{
+          height : 45px;
+          line-height : 45px;
+          text-align : center;
+          background : url('imgEx1/bg_header.png');
+          position : relative;
+      }
+      header .left{
+          position : absolute;
+          left : 10px;
+          top : 7px;
+      }
+      header .right{
+          position : absolute;
+          right : 10px;
+          top : 7px;
+      }
+      /*gnb*/
+      #gnb {
+          overflow : hidden;
+          border : 5px solid gray;
+      }
+      #gnb ul li{ /*li메뉴가 8개가 있어서 li하나당 12.5%씩 사용가능*/ 
+          float : left;   
+          width : 10%; /*비율로 나오게 할것 메뉴 나누기 길이*/
+          margin : 1.25%;
+          border : 1px solid gray;/* 보더를 width안에*/
+          box-sizing : border-box;
+         text-align : center;   
+      }
+      /*checkbox(menu.png)를 클릭할 경우*/
+      #gnb {
+          display : none;
+          /*visibility :*/ 
+      }
+      #toggle:checked ~ #gnb{
+          display : block;
+      }
+      #toggle {
+          display : none;
+      }
+      #lnb ul{
+          overflow : hidden;
+      }
+      #lnb ul li{
+          float : left;
+          text-align : center;
+          height : 60px;
+          line-height : 60px;
+          border : 1px solid white;
+          width : 20%;
+          background : #137163;
+          box-sizing : border-box;
+      }
+      #lnb ul li a{
+          color : white;
+      }
+      #lnb ul li:first-child{
+          border-left : 0;
+      }
+      #lnb ul li:last-child{
+          border-right : 0;
+      }
+      /*content*/
+      #content{
+          padding:10px;
+          color : #333;
+      }
+      #content .content_header{
+          padding : 10px;
+          border-bottom : 1px solid gray;
+      }
+      #content .content_body p:first-child {
+          color : deepskyblue;
+          padding : 10px;
+          /*말줄임태그*/
+          white-space : nowrap;
+          overflow : hidden;
+          text-overflow : ellipsis;
+      }
+      #content .content_body p:last-child {
+          background : url('imgEx1/bg_image.png') -500px -200px no-repeat; /*사용하려는 이미지 부분의 좌표 기준으로*/
+      
+          background-position-x : -500px;
+          background-position-y : -200px;
+          padding : 10px;
+          font-weight : bold;
+
+      }
+      footer .logo {
+          text-align: center; /*글씨나 이미지를 가운데로*/
+          border-top: 1px solid lightgray;
+          border-top: 1px solid lightgray;
+      }
+      footer .logo img{
+          width : 150px;
+      }
+      footer .info{
+          text-align:center;
+          font-weight:bold;
+          font-size:1.5em;
+      }
+      footer .address{
+          text-align : center;
+          font-size : 0.8em;
+      }
+
+  </style>
+</head>
+<body>
+    <input type="checkbox" id="toggle" /> <!--토글용이기때문에 아이디랑 폼 필요없음-->
+    <header>
+        <a href="#" class="left">
+            <img src="imgEx1/category.png" />
+        </a>
+        <h1>Mobile</h1>
+        <label for="toggle" class="right"> <!--for에 id명 해당 id를 갖고있는 태그로 감?-->
+            <img src="imgEx1/menu.png" />
+        </label>
+    </header>
+    <div id="gnb">
+        <ul>
+            <li><a href="#">gnb1</a></li>
+            <li><a href="#">gnb2</a></li>
+            <li><a href="#">gnb3</a></li>
+            <li><a href="#">gnb4</a></li>
+            <li><a href="#">gnb5</a></li>
+            <li><a href="#">gnb6</a></li>
+            <li><a href="#">gnb7</a></li>
+            <li><a href="#">gnb8</a></li>
+        </ul>
+    </div>
+    <div id="lnb">
+        <ul>
+            <li><a href="#">lnb1</a></li>
+            <li><a href="#">lnb2</a></li>
+            <li><a href="#">lnb3</a></li>
+            <li><a href="#">lnb4</a></li>
+            <li><a href="#">lnb5</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="content_header">
+            <h1>홍길동</h1>
+        </div>
+        <div class="content_body">
+            <p>첫asdsasdasadasdadsadsdsadassdadsadasdsa번째 p태크는 한줄로 출력하는데 내용이 길면 말줄임 태그</p><!--첫번째 p태크는 한줄로 출력하는데 내용이 길면 말줄임 태그(...)-->
+            <p>국회는 이날 한동훈 후보자와 이창양 산업통상자원부 장관 후보자 인사청문회를 각각 진행했다. 윤석열 정부 18개 부처 중 14개 부처 
+            장관 후보자의 인사청문회가 마무리됐다. 김인철 부총리 겸 교육부 장관 후보자가 ‘성폭력 교수 옹호’ ‘아빠 찬스’ 논란 등으로
+            자진 사퇴했다.</p>
+        </div>
+    </div><!--content-->
+    <footer>
+        <div class="logo">
+            <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" />
+        </div>
+        <div class="info">
+            xx주식회사
+        </div>
+        <div class="address">
+            서울시 강남구 삼성동 23-3 현대산업개발 402호
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
