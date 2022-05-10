@@ -21,9 +21,7 @@
         header{
             background-color: darkorange;    
             height : 100px;
-
         }
-        
         header #logo_wrap{
             height : 50px;
             line-height : 50px;
@@ -43,8 +41,119 @@
         header #logo_wrap a.logo{
             color : white;
         }
+        header #search{
+            height : 50px;
+            position : relative; /*부모단의 위치를 벗어나지 않게*/ 
+        }
+        header #search input[type='text']{
+            width : 100%;
+            height : 50px; 
+            border : 3px solid darkorange;
+            box-sizing : border-box; 
+            padding : 5px 55px 5px 5px;
+            font-size : 1.3em;
+            outline : none;
+        } 
+        header #search input[type='submit']{ /*속성선택자 ''반드시 쓸것*/
+            position : absolute;
+            right : 0;
+            background : url("imgEx2/search.png");
+            width : 50px;
+            height : 50px;
+            border : none;
+            outline : none;
+            cursor:pointer;
+        }
+        /*lnb*/
+        #lnb ul {
+            overflow: hidden;
+            margin : 5px 0;
+        }
+        #lnb ul li{
+            float:left;
+            text-align:center;
+            border-left: 2px solid darkorange;
+            width : 16.6666%;
+            height : 40px;
+            line-height : 40px;
+            box-sizing : border-box;
+        }
+        #lnb ul li:first-child{
+            border-left:none;
+        }
+        #lnb ul li a{
+            color : darkblue;
+            font-weight: bold;
+        }
+        /*section1*/
+        #section1 .row1, #section1 .row2, #section1 .row3 {
+            overflow : hidden;
+        
+        }
 
-
+        #section1 .row1 div, #section1 .row2 div, #section1 .row3 div {
+            float: left;
+            width : 50%;
+            height : 165px;
+            border : 2px solid white;
+            box-sizing : border-box;
+        }
+        #section1 div img{
+            width : 100%;
+            height : 100%;
+        }
+        /*section2*/
+        #section2 ul{
+            margin: 5px;
+        }
+        #section2 ul li {
+            border: 1px solid lightgray;
+            padding: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #section2 ul li a{
+            color : black; 
+            font-weight : bold;
+        }
+        /*section3*/
+        #section3 ul li {
+            border : 1px solid lightgray;
+            margin : 5px;
+            padding : 5px;
+            height : 120px;
+            position : relative;
+        }
+        #section3 ul li p.img{
+            position : absolute;
+            top : 15px;
+            left : 15px;
+        }
+        #section3 ul li p.txt{
+            width : 100%-100px;
+            padding : 5px 5px 5px 120px;
+        }
+        #section3 ul li p.txt span:first-child{
+            display : block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size : 1.2em;
+            font-weight : bold;
+            color : darkblue;
+        }
+        #section3 ul li p.txt span:last-child{
+            font-size : small;
+        }
+        footer{
+            background-color : darkorange;
+            text-align : center;
+        }
+        footer p:last-child{
+            font-size : .8em;
+            padding-bottom : 20px;
+        }
     </style>
 </head>
 <body>
@@ -61,5 +170,129 @@
             </form>
         </div>
     </header>
+    <div id="lnb">
+        <ul>
+            <li><a href="#">inb1</a></li>
+            <li><a href="#">inb2</a></li>
+            <li><a href="#">inb3</a></li>
+            <li><a href="#">inb4</a></li>
+            <li><a href="#">inb5</a></li>
+            <li><a href="#">inb6</a></li>
+        </ul>
+    </div>
+    <section>
+        <div id="section1">
+            <div class="row1">
+                <div>
+                    <a href="https://n.news.naver.com/mnews/article/022/0003694030?sid=100">
+                        <img src="https://imgnews.pstatic.net/image/022/2022/05/10/20220509517847_20220510080804158.jpg?type=w647" alt="1행1열 기사" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/article/newspaper/005/0001524716?date=20220510">
+                        <img src="https://imgnews.pstatic.net/image/005/2022/05/10/2022051000180891575_1652109488_0924244644_20220510040409686.jpg?type=w647" alt="1행2열 기사" />
+                    </a>
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <a href="https://n.news.naver.com/article/newspaper/005/0001524716?date=20220510">
+                        <img src="https://imgnews.pstatic.net/image/005/2022/05/10/2022051000180891575_1652109488_0924244644_20220510040409686.jpg?type=w647" alt="2행2열 기사" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/mnews/article/022/0003694030?sid=100">
+                        <img src="https://imgnews.pstatic.net/image/022/2022/05/10/20220509517847_20220510080804158.jpg?type=w647" alt="2행1열 기사" />
+                    </a>
+                </div>
+            </div>
+            <div class="row3">
+                <div>
+                    <a href="https://n.news.naver.com/mnews/article/022/0003694030?sid=100">
+                        <img src="https://imgnews.pstatic.net/image/022/2022/05/10/20220509517847_20220510080804158.jpg?type=w647" alt="3행1열 기사" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/article/newspaper/005/0001524716?date=20220510">
+                        <img src="https://imgnews.pstatic.net/image/005/2022/05/10/2022051000180891575_1652109488_0924244644_20220510040409686.jpg?type=w647" alt="3행2열 기사" />
+                    </a>
+                </div>
+            </div>
+        </div><!--section1 3행2열 기사 이미지와 alink-->
+        <div id="section2">
+            <ul>
+                <li>
+                   <a href="https://n.news.naver.com/article/087/0000894576?cds=news_media_pc&type=editn">
+                     윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지", "윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지"
+
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/087/0000894576?cds=news_media_pc&type=editn">
+                        윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지", "윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지"
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/087/0000894576?cds=news_media_pc&type=editn">
+                        윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지", "윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지"
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/087/0000894576?cds=news_media_pc&type=editn">
+                        윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지", "윤석열 대통령, 용산벙커서 軍통수권 인수…"확고한 대비태세 유지"
+                    </a>
+                </li>
+            </ul>
+        </div><!--section2 기사 헤드라인 list와 alink-->
+        <div id="section3">
+            <ul>
+                <li>
+                    <p class="img">
+                        <img src="https://via.placeholder.com/100x100" />
+                    </p>
+                    <p class="txt">
+                        <span>첫번째 span부분은 말줄임 할 예정입니다.첫번째 span부분은 말줄임 할 예정입니다.첫번째 span부분은 말줄임 할 예정입니다.</span>
+                        <span>두번째 span부분은 다나올예정 그래서 2중 이상 가능두번째 span부분은 다나올예정 그래서 2중 이상 가능두번째 span부분은 다나올예정 그래서 2중 이상 가능</span>
+
+                    </p>
+                </li>
+                <li>
+                    <p class="img">
+                        <img src="https://via.placeholder.com/100x100" />
+                    </p>
+                    <p class="txt">
+                        <span>첫번째 span부분은 말줄임 할 예정입니다.첫번째 span부분은 말줄임 할 예정입니다.첫번째 span부분은 말줄임 할 예정입니다.</span>
+                        <span>두번째 span부분은 다나올예정 그래서 2중 이상 가능두번째 span부분은 다나올예정 그래서 2중 이상 가능두번째 span부분은 다나올예정 그래서 2중 이상 가능</span>
+
+                    </p>
+                </li>
+            </ul>
+        </div><!--section3 : 100X100 이미지와 가변길이-->
+    </section>
+    <footer>
+        <p><img src="imgEx2/logo.png" alt="회사로고" /></p>
+        <p>서울시 강남구 역삼동 좋은빌딩 402호</p>
+    </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

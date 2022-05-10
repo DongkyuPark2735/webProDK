@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        sum = 0; /*변수가 있으면 지우고 변수선언시 새로 생성*/
+        for (i = 0; i <= 10; i++) {
+            sum += i;
+            document.write(sum);
+
+            console.log(sum);
+            console.log("i ="+i + '까지 누적합은 '+ sum);
+        }
+        for (i = 0; i <= 10; i++) {
+            sum += i;
+            document.write(sum);
+
+            console.log(sum);
+            console.log("i =" + i + '까지 누적합은 ' + sum);
+        }
+        console.log('done');
+        document.write('i ='+i+' 0부터'+i+'까지 누적된 합계는 ='+ sum);
+
+    </script>
+</head>
+<body>
+    <h2>F12키를 눌러보세요</h2>
+    <script>document.body.innerHTML += '<h3>수업 끝</h3>'</script>
+</body>
+</html>
