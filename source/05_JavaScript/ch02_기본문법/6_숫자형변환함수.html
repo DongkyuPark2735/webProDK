@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+<script>
+    str = '100';
+    i = Number(str);
+    document.write('<h3>i = Number("100")</h3>');
+    document.write('i의 타입은 ' + typeof(i) + '- 값 : ' + i + '<br>');
+    
+    i = parseInt(str);
+    document.write('<h3>i = Number("100")</h3>');
+    document.write('i의 타입은 ' + typeof (i) + '- 값 : ' + i + '<br>');
+
+    document.write('<hr>');
+
+    str = '100점';
+    i = Number(str);
+    document.write('<h3>i = Number("100")</h3>');
+    document.write('i의 타입은 ' + typeof (i) + '- 값 : ' + i + '<br>');
+
+    i = parseInt(str); // i에 100 어떤 형식으로 변환해주는지 
+    document.write('<h3>i = Number("100")</h3>');
+    document.write('i의 타입은 ' + typeof (i) + '- 값 : ' + i + '<br>');
+
+    document.write('<hr>');
+
+    str = 'FF';
+    i = Number(str);
+    document.write('<h3>i = Number("100")</h3>');
+    document.write('i의 타입은 ' + typeof (i) + '- 값 : ' + i + '<br>');
+
+    i = parseInt(str, 16); // 두번째 매개변수에 진수값을 넣을수 있음 // 16진수로 인식  
+    document.write('<h3>i = Number("100")</h3>');
+    document.write('i의 타입은 ' + typeof (i) + '- 값 : ' + i + '<br>');
+</script>
+</head>
+<body>
+
+</body>
+</html>

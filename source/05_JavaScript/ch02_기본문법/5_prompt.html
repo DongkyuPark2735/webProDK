@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        scoreStr = prompt('점수를 입력하세요', '0~100점 사이'); // 첫번째매개변수는 팝업창 문구 두번째 매개변수는 기본셋팅값
+        if (scoreStr == null) {
+            alert('점수를 입력하세요');
+        } else {
+            //document.write(scoreStr + '의 타입은' + typeof (scoreStr));
+            score = Number(scoreStr);// Integer.parseInt("") 자바에선 에러;
+            //document.write(score + '의 타입은' + typeof (score));
+            // Number(""); 는 0  Number('A')는 NaN  NaN의 타입은 숫자로 나옴 표현할수없는 숫자형태라는 ;
+            if (isNaN(score)) { // score가 NaN이면 true를 return
+                alert('숫자를 입력하세요');
+            } else {
+                result = score >= 70 ? "70점 이상" : "70점 이하";
+            }
+            document.write(result);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
