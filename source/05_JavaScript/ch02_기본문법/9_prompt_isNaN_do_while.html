@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // 1. prompt함수를 이용해서 국어, 영어, 점수를 받는다.(0~100점)
+        // 2. isNaN 함수를 이용해서 점수를 입력하지 않았을 경우 점수를 다시 입력받는다(do~while)
+        // 3. 영어와 국어점수의 평균을 출력(document.wite함수 이용)
+        var eng, kor;
+        var engNum, korNum;
+        do {
+            eng = prompt("영어점수를 입력하세요(0~100점 사이)", "0");
+            engNum = Number(eng);
+            if (isNaN(engNum)) {
+                alert("유효한 영어점수를 입력하세요(0~100점 사이)");
+            }
+        } while (engNum < 0 || engNum > 100);
+        document.write("영어점수는 : " + engNum + "<br>");
+
+
+
+        kor = prompt("국어점수를 입력하세요(0~100점 사이)", "0");
+
+        document.write("영어점수는 : " + kor + "<br>");
+
+        document.write("합계는 : " +(eng+ kor) + "<br>");
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table tr td{
+            border : 1px solid lightgray;
+            padding : 5px;
+            font-weight : bold;
+        }
+    </style>
+    <script>
+        document.write('<table><tr>');
+        for (i = 2; i <= 9; i++) {
+            document.write('<th>'+i+'단</th>');
+        }
+        document.write('</tr>');
+        for (var i = 1; i <= 9; i++) {
+            document.write('<tr>');
+            for (var j = 2; j <= 9; j++) {
+                document.write('<td>' + j + '+' + i + '=' + (i * j) + '</td>');
+            }
+            document.write('</tr>');
+        }
+        document.write('</table>');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

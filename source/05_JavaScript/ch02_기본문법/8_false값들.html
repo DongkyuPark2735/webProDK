@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // 0, '', NaN,null, undefined
+        var i; /* i엔 undefined값 들어있음*/
+        //Boolean();
+        document.write("i값은 " + i + "불린형으로는 " + Boolean(i) + "<br>");
+        i = 0;
+        document.write("i값은 " + i + "불린형으로는 " + Boolean(i) + "<br>");
+        i = Number("a");
+        document.write("i값은 " + i + "불린형으로는 " + Boolean(i) + "<br>");
+        i = ""; /*빈스트링은 false*/
+        document.write("i값은 " + i + "불린형으로는 " + Boolean(i) + "<br>");
+        i = " "; /*whitespace는 true*/
+        document.write("i값은 " + i + "불린형으로는 " + Boolean(i) + "<br>");
+        i = null;
+        document.write("i값은 " + i + "불린형으로는 " + Boolean(i) + "<br>");
+        document.write("<hr>");
+        document.write(("" == false) + " : == 연산자는 양변의 값이 일치할경우 true <br>");
+        document.write((null == false) + " : == 연산자는 양변의 값이 일치할경우 true <br>");
+        /*null == false 비교연산자에서는 fale*/
+        document.write((" " === false) + " : === 연산자는 양변의 값과 자료형이 일치할경우 true <br>");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

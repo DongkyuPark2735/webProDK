@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table {
+            border : 1px solid gray;
+         }
+    </style>
+    <script>
+        
+        var num1;
+
+        //num1 = frm.firstNum.value;
+        //num2 = Number(frm.secondNum.value);
+         // body보다 먼저 실행되기 때문에 frm이 정의되지않는 오류 발생
+        function check() {
+            num1 = Number(frm.firstNum.value);
+            num2 = Number(frm.secondNum.value);
+            if (!firstNum || isNaN(firstNum)) {
+
+            }
+             return true;
+         }
+    </script>
+</head>
+
+<body>
+    <form name="frm" onsubmit="return check()">
+        <table>
+            <tr>
+                <td>
+                    <label for="first">첫번째 수</label>
+                </td>
+                <td>
+                    <input type="text" id="first" name="firstNum">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="second">두번째 수</label>
+                </td>
+                <td>
+                    <input type="text" id="second" name="secondNum">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <input type="submit" value="결과" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
