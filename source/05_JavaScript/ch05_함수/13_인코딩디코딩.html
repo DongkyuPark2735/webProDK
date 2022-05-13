@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+<script>
+    //인코딩 후(%EC%9E%90%EB%B0%94) 전송
+    //인코딩으로 전송받은 데이터(%EC%9E%90%EB%B0%94)는 디코딩해서 봐야함
+
+    var str = '자바';
+    var str1 = '%EC%9E%90%EB%B0%94';
+    var encodeStr = encodeURIComponent(str);
+
+    document.write('인코딩된 str : ' + encodeStr + '<br>');
+    document.write('인코딩된 str : ' + str1 + '<br>');
+
+    var decodeStr = decodeURIComponent(encodeStr);
+    var decodeStr1 = decodeURIComponent('%EC%9E%90%EB%B0%94');
+
+    document.write('디코딩한 str :' + decodeStr + '<br>');
+    document.write('디코딩한 str :' + decodeStr1 + '<br>');
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

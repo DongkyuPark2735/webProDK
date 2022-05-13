@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="4_a.js">
+    </script>
+    <script src="4_b.js">
+    </script>
+    <script>
+        //funVar(); 에러 // 익명함수는 변수에대한 정의이기때문에 미리불러올수없음 
+        var funVar = function () {
+            alert('함수A');
+        };
+
+        funVar(); // 함수A호출
+
+        var funVar = function () {
+            alert('함수B');
+        };
+        funVar(2); // 함수 B호툴
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        document.write('pow(4,2) ='+ pow(4, 10));
+        document.write('<br>');
+        document.write('pow(3,2,2) =' + pow(3, 2, 2)); // 정의된 수의 매개변수 수보다 많은 매개변수가 들어올 경우 
+                                                       // 수에 맞는 매개변수만 반영하고 초과하여 들어오는 매개변수는 무시됨
+        document.write('<br>');
+        // 선언된 함수의 매개변수보다 적은 매개변수로 호출
+        document.write('pow(4) =' + pow(4));
+        // 매개변수갯수가 맞춰 들어오지않으면 입력받지 않은 매개변수는 undefind로 들어옴
+        document.write('<br>');
+
+  
+
+        //function pow(x, y) { //x의 y승을 리턴하는 함수 : pow(4.2) //자바스크립트에서는 함수의 오버로딩x
+        //    var result = 1;
+        //    for (var i = 1; i <= y; i++) {
+        //        result *= x;
+        //    }
+        //    return result;
+        //}
+
+        //리턴없는함수 undefined 값을 리턴한다.
+        function pow(x, y) {
+            var result = 1;
+            for (var i = 1; i <= y; i++) {
+                result *= x;
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+       
+       
+    </style>
+    <script>
+        var col = ['white', 'black', 'red'];
+        var img = ['background: url("img/img01.png")', 'background: url("img/img02.png")', 'background: url("img/img03.png")'];
+        var s = 0;
+        var id = setInterval(function () {
+            document.write(new Date + '<br>');
+            document.body.style.color = col[s % 3];
+            document.body.style = img[s % 3];
+            s++;
+        }, 1000);
+        setTimeout(function () {
+            clearInterval(id);
+        }, 10000);
+        
+
+    </script>
+</head>
+<body>
+    <!--총괄 예제 : 10초동안 1초마다 body의 백그라운드 이미지가 바뀌고 시간이 출력되도록 자바스크립트로 구현 후,
+    yisy0703@naver.com으로 사진과 html파일을 압축하여 첨부하시오.(이미지파일 최소 3개)-->
+</body>
+</html>

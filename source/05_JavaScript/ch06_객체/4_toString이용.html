@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var person = {
+            name : '홍길동',
+            age : 20,
+            address : '서울시 강남구',
+            eat: function (food) {
+                var msg = this.age + '살 ' + this.name + '님은 ' + food + '를 먹습니다.';
+                document.write(msg);
+            },
+                // 함수를 출력하지않고(Object나오기때문) 함수가 아닌 속성으로 출력
+            toString: function () { 
+                var output = '';
+                for (var key in this) {
+                    if (key != 'eat' && key != 'toString') {
+                        output += key + ':' + this[key] + '\n';
+                    }
+                }//for
+                return output;
+            },
+        };
+        person.eat('스테이크');
+        document.write("<br>");
+
+        document.write(replaceAll(person.toString(), '\n','<br>'));
+        alert(person.toString());
+        function replaceAll(str, oldStr, replaceStr) {
+            var splitStr = str.split(oldStr);
+            var result = splitStr.join(replaceStr);
+            return result;
+            return str.split(oldStr).join(replaceStr);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

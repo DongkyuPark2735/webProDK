@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //fun(); // 익명함수는 선언전에 호출되면 실행되지않음 
+        //var fun = function () {
+        //    alert('함수A');
+        //}; // 변수에 할당하는것이기 때문에 ;세미콜론 필요
+        //fun();
+
+        fun(); // 선언적 함수는 선언 전에 위치해도 호출됨;
+               // 자바스크립트 선언부분을 먼저 실행하고 위에서부터 순차실행
+        function fun() { //선언적 함수 // 함수의 선언이기때문에 ;세미콜론 X
+            alert('함수 A');
+         }
+        fun();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

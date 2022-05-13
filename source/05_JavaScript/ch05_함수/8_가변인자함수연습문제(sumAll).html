@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function sumAll() {
+            var result = -999;
+            if (arguments.length >= 1) {
+                var result = 0;
+                for (var i = 0; i < arguments[i]; i++) {
+                    result += arguments[i];
+                }
+                return result;
+            }
+            return result;
+        }
+        var sum = sumAll();
+
+        document.write('sumAll() =' + sum + '<br>');
+        var sum = sumAll(1);
+        document.write('sumAll(1) =' + sum + '<br>');
+        var sum = sumAll(1, 2, 3, 4, 5);
+        document.write('sumAll(1, 2, 3, 4, 5) =' + sum + '<br>');
+        var sum = sumAll(1, 2, 3, 4, 5, 10 , 30, 40);
+        document.write('sumAll(1, 2, 3, 4, 5, 10 , 30, 40) =' + sum + '<br>');
+    </script>
+</head>
+<body>
+</body>
+</html>
