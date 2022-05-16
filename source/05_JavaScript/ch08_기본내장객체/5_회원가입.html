@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var patterName = /[가-힣]{2,4}/ ;
+        var patterEmail = /[\w\d_]+@[\w]+.[\w]+[.\w]*/;
+        var patterPw = /[\d\w~`!@#$%^&*()-_+=|{}\\\[\]?]{4,}/;
+        var patterPwchk =/[\d\w~`!@#$%^&*()-_+=|{}\\\[\]?]{4,}/ ;
+        var patternSpc = /[~`!@#$%^&*()-_+=|{ }\\\[\]?]/;
+
+        function chk() {
+            var name = '';
+            var email = '';
+            var pw = '';
+            var pwchk = '';
+
+            name = frm.fname.value.trim();
+            email = frm.femail.value;
+            pw = frm.fpw.value;
+            pwchk = frm.fpwchk.value;
+         
+            alert(email.indexOf('@'));
+
+            var nameChek = patterName.test(name);
+
+            alert(nameChek);
+            var emailChek = patterEmail.test(email);
+            var pwChek = patterPw.test(pw);
+            var pwchkChek = patterPwchk.test(pwchk);
+            
+            if (name == null || name == '') {
+                alert('이름을 입력하세요');
+                return false;
+            } else if (email == null || email == '') {
+                alert('메일을 입력하세요');
+                return false;
+            } else if (pw == null || pw == '') {
+                alert('비밀번호를 입력하세요');
+                return false;
+            } else if (!nameChek) {
+                alert('이름을 형식에 맞게 입력하세요 ex)2글자 이상 4글자 이하');
+                frm.fname.focus();
+                return false;
+            } else if (!emailChek || email.lastIndexOf('@') !== email.indexOf('@')) {
+                alert('메일을 형식에 맞게 입력하세요 ex)hong@hong.com');
+                frm.femail.focus();
+                return false;
+            } else if (!pwchk) {
+                alert('비밀번호를 형식에 맞게 입력하세요 ex)영문,숫자,특수문자 포함 4글자 이상');
+                frm.fpw.focus();
+                return false;
+            } else if (pwChek !== pwchkChek) {
+                alert('비밀번호를 동일하게 입력하세요.');
+                frm.fpwchk.focus();
+                return false;
+            }
+            return true;
+         }
+
+    </script>
+</head>
+<body>
+    <form id="frm" name="frm" onsubmit="return chk()">
+        <table>
+            <tr>
+                <td>
+                    <label for="fname">이 름</label>
+                </td>
+                <td>
+                    <input id="fname" name="fname" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="femail">메 일</label>
+                </td>
+                <td>
+                    <input id="femail" name="femail" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="fpw">비밀번호</label>
+                </td>
+                <td>
+                    <input id="fpw" name="fpw" type="password" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="fpwchk">이 름</label>
+                </td>
+                <td>
+                    <input id="fpwchk" name="fpwchk" type="password" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="회원가입" />
+                    <input type="reset" value="취소"/>
+                    <input type="button" value="로그인"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var num = 273.5590332; // 객체처럼 생성됨 기본형으로 생성해도
+        document.write(num + '<br>');
+        document.write('지수형 표현 : ' + num.toExponential(5) + '<br>');
+        document.write('1자리까지 : ' + num.toFixed(1) + '<br>');
+        document.write('소수점 1자리까지(반올림) : ' + Math.round(num * 10) / 10 + '<br>');
+        document.write('소수점 1자리까지(반올림) : ' + Math.round(num, 1) + '<br>'); // Math.round는 소수점 반올림 지정불가
+        document.write('숫자를 4개만 출력 : ' + num.toPrecision(4)); 
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

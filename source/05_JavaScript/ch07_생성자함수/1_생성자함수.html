@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Student(name, kor, mat, eng, sci) { // 생성자함수는 대문자로 시작하는게 보편적
+            this.name = name;
+            this.kor = kor;
+            this.mat = mat;
+            this.eng = eng;
+            this.sci = sci;
+            this.getSum = function () {
+                return this.kor + this.mat + this.eng + this.sci;
+            };
+            this.getAvg = function () {
+                return this.getSum() / 4;
+            };
+            this.toString = function () {
+                var output = '';
+                for (var key in this) {
+                    if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                        output += key + ':' + this[key] + '<br>';
+                    } else if (key == 'getSum' || key == 'getAvg') {
+                        output += key.substring(3).toUpperCase() + ' : ' + this[key]() + '<br>';
+                    }
+                }
+                return output;
+            };
+        }
+        var students = [new Student('홍길동', 100, 100, 100, 100),
+                        new Student('마길동', 90, 80, 70, 60),
+                        new Student('윤길동', 60, 70, 80, 90),
+                        new Student('윤길동', 60, 70, 80, 90)];
+        
+        students.forEach(function (data, idx) {
+            document.write(idx + '번째 <br>' + data + '<hr>')
+        });
+
+        students.pop();//마지막값 제거
+        document.write('제거후<hr>');
+        students.forEach(function (data, idx) {
+            document.write(idx + '번째 <br>' + data + '<hr>')
+        });
+
+        //var s = { name: '홍길동', kor: 99, mat: 90, eng: 98, sci: 100 };
+        //var s = makeStudent('홍길동', 90, 91, 92, 93);
+        s = new Student('홍길동', 90, 91, 92, 93);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

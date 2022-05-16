@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--정규표현식 : 정규표현식 연습장(http://www.regexr.com)을 통해 만들어진 정규표현식 test
+                [0-9] : 0~9 사이 중 문자 하나
+                [a-zA-Z] : 알파벳 중 문자 하나
+                [가-힣] : 한글 중 문자 하나
+                [가-힣ㄱ-ㅎㅏ-ㅣ] : 한글, 자음, 모음 중 문자 하나
+                {n} : n번 반복
+                {n,m} : 최소 n번, 최대 m번 반복(0<n<=m)
+                \d : 숫자[0-9]와 동일
+                \w : 문자(숫자와 알파벳)중 문자 하나
+                + : 1번 이상 반복
+                * : 0번 이상 반복
+                . : '\n'을 제외한 임의의 문자 하나 자리수
+                \. : .문자
+            -->
+    <script>
+        var str = 'abcd@ef9';
+
+        //패턴
+        var patternNum = /[0-9]{2}/; // 숫자패턴
+        var patternEng = /[a-zA-Z]/; // 알파벳 문자패턴
+        var patternKor = /[가-힣ㄱ-ㅎㅏ-ㅣ]/; // 한글 문자패턴
+        var patternSpc = /[~`!@#$%^&*()-_+=|{}\\\[\]?]/; //특수문자 패턴 [=> \[, ]=>\] \ ->\\
+        document.write('str에 숫자가 포함되어 있는지 : ' + patternNum.test(str) + '<br>');
+        document.write('str에 특수문자가 포함되어 있는지 : ' + patternSpc.test(str) + '<br>');
+        document.write('str에 한글이 포함되어 있는지 : ' + patternKor.test(str) + '<br>');
+        document.write('str에 알파벳이 포함되어 있는지 : ' + patternEng.test(str) + '<br>');
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var students = [{ name: '홍길동', kor: 99, mat: 90, eng: 98, sci: 100 },
+                        { name: '김길동', kor: 95, mat: 95, eng: 78, sci: 60 }];
+
+        students.push({ name: '박길동', kor: 79, mat: 95, eng: 98, sci: 100 });
+        students.push({ name: '신길동', kor: 89, mat: 98, eng: 88, sci: 80 });
+        students.push({ name: '마길동', kor: 79, mat: 70, eng: 78, sci: 60 });
+        //students[0].getSum = function () { return kor + mat + eng + sci };
+
+        for (var idx in students) {
+            students[idx].getSum = function () {
+                return this.kor + this.mat + this.eng + this.sci;
+            }
+            students[idx].getAvg = function () {
+                return Math.round(this.getSum() / 4);
+            }
+            students[idx].toString = function () {
+                var output = '';
+                for (var key in this) {
+                    if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                        output += key + ':' + this[key] + '<br>';
+                    }else if (key == 'getSum' || key == 'getAvg') {
+                        output += key.substring(3).toUpperCase() + ' : ' + this[key]() + '<br>';
+                    }
+                }
+                return output;
+            }
+        }
+        //일반 for문
+        var output = '';
+        for (var idx = 0; idx < students.length; idx++) {
+            output += idx + '번째' + '<br>';
+            output += students[idx]
+        }
+        document.write(output);
+
+        // alert(output.replaceAll('<br>', '\n')); // 최근 버젼에서 추가됨 ? 어디서 ?
+
+        //for in 문
+        document.write('<h4>for-in문 이용</h4>');
+        var output = '';
+        for (var idx in students) {
+            output += idx + '번째' + '<br>';
+            output += students[idx]
+        }
+        document.write(output);
+
+        //forEach()함수
+        document.write('<h4>forEach문 이용</h4>');
+        students.forEach(// 매개변수로 콜백함수 
+            function (data, idx) {
+                document.write(idx + '번째<br>');
+                document.write(data + '<hr>');
+            }
+        );
+
+        function replaceAll(str, oldStr, newStr) {//str내의 oldStr부분을 newStr로 모두 교체
+            //str = "aa<br>bb<br>cc";
+            //splitStr = ['aa', 'bb', 'cc'];
+            //joinStr = 'aa\bb\cc';
+            var splitStr = str.split(oldStr);
+            var joinStr = splitStr.join(newStr);
+            return joinStr;
+            //return str.split(oldStr).join(newStr);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
