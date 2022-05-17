@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Student(name, kor, mat) { // 리턴이 없으면 생성자로 인식?
+            this.name = name;
+            this.kor = kor;
+            this.mat = mat;
+        }
+        Student.prototype.getSum = function () {
+            return this.kor + this.mat;
+        };
+        Student.prototype.getAvg = function () {
+            return this.getSum() / 2;
+        };
+        Student.prototype.toString = function () {
+            return this.name + '(' + this.kor + '.' + this.mat + '총점 : ' + this.getSum() + ', 평균' + this.getAvg() + ')';
+        };
+
+        var students = [new Student('홍길동', 99, 88), new Student('김길동', 89, 91), new Student('윤길동', 85, 25),
+                        new Student('박길동', 76, 68), new Student('나길동', 53, 68), new Student('장길동', 75, 75)];
+        
+
+        document.write('<h3>정렬 전 원 데이터</h3>');
+        students.forEach(function (data, idx) {
+            document.write(idx+'번째' + data + '<br>');
+        });
+
+
+        //originStudents = students; // 정렬전 데이터를 저장하고 싶으면 다른 변수 할당;
+        //for (var a in students) {
+        //    document.write(a + ':' + students[a] + '<br>');
+        //}
+
+        //총점 기준으로 오름차순 정렬 
+        students.sort(function (left, right) {
+            return left.getSum() - right.getSum();
+        });
+
+        document.write('<h3>총점 기준으로 오름차순 정렬한 데이터</h3>');
+        students.forEach(function (value, idx) {
+            document.write(idx + ':' + value + '<br>');
+        });
+
+        //이름 가나다순으로 정렬
+        //students.sort(); // 문자가 하나여서 정렬됨?
+
+        students.sort(function (left, right) {
+            return left.kor - right.kor; //숫자일떄 return 음수면 left가 앞, return 양수면 right를 앞
+            if (left.name < right.name) {
+                return -1;// return 음수면 left가 앞에
+            } else if (left.name > right.name) {
+                return 1;// return 양수면 right가 앞에 
+            } else {
+                return 0; // return 0이면 위치 그대로
+            }
+        })
+        document.write('<h3>이름 기준으로 오름차순 정렬한 데이터</h3>');
+        students.forEach(function (value, idx) {
+            document.write(idx + ':' + value + '<br>');
+        });
+
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap{
+           margin : 0 auto;
+           width : 1000px;
+        }
+        #wrap ul {
+            text-align : center;
+        }
+        #wrap ul li {
+            float: left;
+            width : 50px;
+            height : 100px;
+            list-style : none;
+            border : 1px solid black;
+        }
+        #wrap ul li:first-child{
+            background-color : red;
+
+        } 
+   
+    </style>
+    <script>
+        var liColor;
+        
+        window.onload = function () {
+            liColor = document.querySelectorAll('.color');
+            for (var idx in liColor) {
+                console.log(typeof (idx));
+                switch (idx) {
+                    
+                    case '0': liColor[0].style.cssText = 'background-color:red;'; break;
+                    case '1': liColor[1].style.cssText = 'background-color:orange;'; break;
+                    case '2': liColor[2].style.cssText = 'background-color:yellow;'; break;
+                    case '3': liColor[3].style.cssText = 'background-color:green;'; break;
+                    case '4': liColor[4].style.cssText = 'background-color:blue;'; break;
+                    case '5': liColor[5].style.cssText = 'background-color:navy;'; break;
+                    case '6': liColor[6].style.cssText = 'background-color:pink;'; break;
+                }
+             }           
+        };
+
+        function change(idx) {
+            switch (idx) {
+                case 1: document.body.style.backgroundColor = 'red'; break;
+                case 2: document.body.style.backgroundColor = 'orange'; break;
+                case 3: document.body.style.backgroundColor = 'yellow'; break;
+                case 4: document.body.style.backgroundColor = 'green'; break;
+                case 5: document.body.style.backgroundColor = 'blue'; break;
+                case 6: document.body.style.backgroundColor = 'navy'; break;
+                case 7: document.body.style.backgroundColor = 'pink'; break;
+            }
+        }
+
+        function close() {
+            alert(1);
+            document.body.style.backgroundColor = 'black';
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <ul>
+            <li class="color" onmouseover="change(1)" onmouseout="alert(1)"> </li>
+            <li class="color" onmouseover="change(2)" onmouseout="close()"> </li>
+            <li class="color" onmouseover="change(3)" onmouseout="close()"> </li>
+            <li class="color" onmouseover="change(4)" onmouseout="close()"> </li>
+            <li class="color" onmouseover="change(5)" onmouseout="close()"> </li>
+            <li class="color" onmouseover="change(6)" onmouseout="close()"> </li>
+            <li class="color" onmouseover="change(7)" onmouseout="close()"> </li>
+        </ul>
+    </div>
+</body>
+</html>
