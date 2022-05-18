@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var img = document.getElementsByTagName('img');
+
+        //var pw1 = document.querySelector('input[name="pw1"]');
+
+        var imgA = document.querySelector('img[src="img/' +idx+'over.jpg"]');
+        
+        function change() {
+            var imgA = document.querySelector('img[src="img/' + idx + 'over.jpg"]');
+        }
+
+    </script>
+</head>
+<body>
+    <img src="img/0out.jpg" " />
+    <img src="img/1out.jpg" onmousedown="change()"/>
+    <img src="img/2out.jpg" onmousedown="change()"/>
+    <img src="img/3out.jpg" onmousedown="change()"/>
+</body>
+</html>

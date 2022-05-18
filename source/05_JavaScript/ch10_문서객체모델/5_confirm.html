@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+       
+        window.onload = function () {
+            document.getElementById('id').value = opener.document.getElementById('id').value;;
+        }
+
+        function useid() {
+            opener.document.getElementById('id').value = document.getElementById('id').value;
+            opener.document.getElementById('idhidden').value = '1';
+            close();
+
+        }
+    </script>
+</head>
+<body>
+    <p>
+        ID<input type="text" id="id" />
+    </p>
+    <p>
+        <input type="button" id="idchck" value="아이디사용"
+               onclick="useid()"/>
+    </p>
+</body>
+</html>

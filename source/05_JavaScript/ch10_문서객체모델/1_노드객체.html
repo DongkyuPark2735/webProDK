@@ -15,15 +15,13 @@
         // 방법 1 - 4. h1태그를 body에 추가
         document.body.appendChild(h1);
 
-
         // 방법 2 - 1. img 태그 생성 
         var img = document.createElement('img');
         // 방법 2 - 2. src속성 셋팅
         img.setAttribute('src', 'img/red.jpg');
         // 방법 2 - 3. img태그를 body에 추가
         document.body.appendChild(img);
-
-
+        
         // 방법 3 - 1 innerHTML을 이용 
         document.body.innerHTML += '<h1>방법3으로 추가</h1>';
 

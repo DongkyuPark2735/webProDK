@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            var header = document.getElementsByClassName('header'); //배열
+            //var header = document.querySelectorAll('.header'); //배열
+
+            console.log(header);
+            //header[0].onclick = function () {
+            //    msg = header[0].innerHTML;
+            //    alert('click');
+            //    header[0].style.color = 'red';
+            //    header[0].style.border = '1px solid orange';
+            //};
+            //header[1].onclick = function () {
+            //    msg = header[1].innerHTML;
+            //    alert('click');
+            //    header[1].style.color = 'red';
+            //    header[1].style.border = '1px solid orange';
+            //};
+            for (var idx in header) {
+                console.log(header[idx]);
+                header[idx].onclick = function () {
+                    msg = this.innerHTML; //클릭한 해당 
+                    alert(msg);
+                    this.style.color = 'red';
+                    this.style.border = '1px solid orange';
+                    this.style.cssText = 'color : red; border: 1px solid orange';
+
+                };
+            }
+
+        };
+
+
+    </script>
+</head>
+<body>
+    <h1 class="header">click1</h1>
+    <h1 class="header">click2</h1>
+    <h1 class="header">click3</h1>
+    <h1 class="header">click4</h1>
+    <h1>click4</h1>
+</body>
+</html>

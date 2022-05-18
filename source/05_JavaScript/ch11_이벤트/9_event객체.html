@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onkeyup = function () {
+            //오른쪽 숫자 키패드(96~105)
+            //위 숫자 키패드(48~57)
+            document.body.innerHTML += '눌러진 키패드의 아키스코드 :' + event.keyCode + '<br>';// 눌러진 키의 아스키 코드
+
+        };
+        window.onclick = function () {
+            document.body.innerHTML = '스크린 좌표 : ' + event.screenX + ',' + event.screenY + '<br>';
+            document.body.innerHTML += 'offset 좌표 : ' + event.offsetX + ',' + event.offsetY + '<br>';
+
+
+        }
+    </script>
+</head>
+<body>
+    <img src="img/car.gif" />
+</body>
+</html>

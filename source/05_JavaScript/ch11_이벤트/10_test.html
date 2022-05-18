@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{
+            width : 1000px;
+            margin : 0 auto;
+        }
+        table{
+            text-align:center;
+            margin : 0 auto;
+            display : block;
+            float: left;
+        }
+        table tr td {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+
+
+    <script>
+        var keyNum;
+        
+        
+        var td;
+        window.onkeyup = function () {
+            td = document.getElementsByTagName('td');
+            keyNum = event.keyCode;
+            console.log(keyNum);
+            //매개변수 //오른쪽 숫자 키패드(96~105)
+            //위 숫자 키패드(48~57)
+            var numArray = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+            var numArray2 = [96, 97, 98, 99, 100, 101, 102, 103, 104, 105];
+
+            for (var idx = 0; idx < 9; idx++) {
+                td[idx].style.cssText = 'background-color : white;';
+            }
+            //for문말고 배경흰색
+            for (var idx in td) {
+                if (keyNum == numArray[idx]) {
+                    pressNum(idx);
+                } else if (keyNum == numArray2[idx]) {
+                    pressNum2(idx);
+                }
+            }
+        };
+
+        function pressNum(num) {
+            td[num].style.cssText = 'background-color : pink;';
+        }
+        function pressNum2(num) {
+            td[num].style.cssText = 'background-color : red;';
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <table id="leftNum">
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

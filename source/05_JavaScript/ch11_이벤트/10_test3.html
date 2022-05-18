@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        img{
+            position : absolute;
+        
+        }
+
+    </style>
+    <script>
+        var img = document.getElementsByTagName('img')[0];
+        var left, right;
+        window.onclick = function () {
+            left = event.screenX;
+            top = event.screenY;
+            //console.log(img.sytle.cssText);
+            img.sytle.cssText = 'left:' + left + 'px' + ';' + 'top:' + top + 'px' + ';'
+           
+            
+        }
+        
+    </script>
+</head>
+<body>
+    <img src="img/car.gif" />
+</body>
+</html>
