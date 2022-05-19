@@ -8,23 +8,20 @@
     <style>
         img{
             position : absolute;
-        
         }
 
     </style>
     <script>
-        var img = document.getElementsByTagName('img')[0];
-        var left, right;
         window.onclick = function () {
-            left = event.screenX;
-            top = event.screenY;
-            //console.log(img.sytle.cssText);
-            img.sytle.cssText = 'left:' + left + 'px' + ';' + 'top:' + top + 'px' + ';'
-           
-            
+            var img = document.getElementsByTagName('img')[0];
+            var leftm = event.offsetX + 'px';
+            var topm = event.offsetY + 'px';
+            img.style.left = leftm;
+            img.style.top = topm
         }
         
     </script>
+
 </head>
 <body>
     <img src="img/car.gif" />

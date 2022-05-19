@@ -5,22 +5,27 @@
     <meta charset="utf-8" />
     <title></title>
     <script>
-        var img = document.getElementsByTagName('img');
 
         //var pw1 = document.querySelector('input[name="pw1"]');
 
-        var imgA = document.querySelector('img[src="img/' +idx+'over.jpg"]');
-        
-        function change() {
-            var imgA = document.querySelector('img[src="img/' + idx + 'over.jpg"]');
+        window.onload = function () {
+            var img = document.getElementsByTagName('img');
+            for (let idx = 0; idx < img.length; idx++) {
+                window.onmouseover = function () {
+                    img[idx].src = "img/" + idx + "over.jpg";
+                };
+                window.onmouseleave = function () {
+                    img[idx].src = "img/" + idx + "out.jpg";
+                };
+            }
         }
 
     </script>
 </head>
 <body>
-    <img src="img/0out.jpg" " />
-    <img src="img/1out.jpg" onmousedown="change()"/>
-    <img src="img/2out.jpg" onmousedown="change()"/>
-    <img src="img/3out.jpg" onmousedown="change()"/>
+    <img src="img/0out.jpg" />
+    <img src="img/1out.jpg" />
+    <img src="img/2out.jpg" />
+    <img src="img/3out.jpg" />
 </body>
 </html>
