@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+</head>
+<body>
+	<h2>오늘의 메뉴와 식당 선택</h2>
+	<form action="../Ex2" method="get">
+		<p>메뉴
+			<select name="menu" multiple="multiple" size="3">
+				<option>된장찌개</option>
+				<option>김치찌개</option>
+				<option>부대찌개</option>
+				<option>고추장찌개</option>
+			</select>
+		</p>
+		<!-- request.getparameter는 매개변수 하나만 받음 -->
+		<p>식당
+			<input type="checkbox" name="rest" value="남양주" checked="checked">남양주	
+			<input type="checkbox" name="rest" value="미인포차">미인포차	
+			<input type="checkbox" name="rest" value="전주식당">전주식당	
+			<input type="checkbox" name="rest" value="보배반점">보배반점	
+		</p>
+		<p>국적
+			<input type="radio" name="nation" value="한국" checked="checked" >한국
+			<input type="radio" name="nation" value="미국">미국
+			<input type="radio" name="nation" value="영국">영국
+		</p>
+		<input type="submit" value="입력">
+	</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

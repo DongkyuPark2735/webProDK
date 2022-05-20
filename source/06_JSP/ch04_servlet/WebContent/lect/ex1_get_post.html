@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+<!-- <script type="text/javascript">
+window.onload = function () {
+	document.querySelector('button').onclick = function () {
+		location.href="../Ex1?id=qkr&pw=pp";
+	};
+};
+</script> -->
+</head>
+<body>
+	<!-- 파라미터 전에 ?물음표 다음은 파라미터 -->
+	
+	<a href="../Ex1?id=김&pw=ppp">Ex1서블릿에게 id와 pw넘기기(GET)</a>
+	<hr>
+	<!-- <button onclick="../Ex1?id=qkr&pw=pp"> -->
+	<button onclick="location.href='../Ex1?id=김&pw=ppp'">Ex1서블릿에게 id와 pw넘기기(get)</button>
+	<hr>
+	<form action="/ch04_servlet/Ex1" method="get">
+		<p>ID<input type="text" name="id" value="한글"></p>
+		<p>PW<input type="password" name="pw"></p>
+		<p><input type="submit" value="Ex1서블릿에게 id와 pw넘기기(get)"></p>
+	</form>  
+	<hr>
+	<form action="../Ex1" method="post">
+		<p>ID<input type="text" name="id" value="한글"></p>
+		<p>PW<input type="password" name="pw"></p>
+		<p><input type="submit" value="Ex1서블릿에게 id와 pw넘기기(post)"></p>
+	</form>  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
