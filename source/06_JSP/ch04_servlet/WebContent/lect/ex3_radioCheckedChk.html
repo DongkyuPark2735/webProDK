@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script>
+  	window.onload = function () {
+			document.querySelector('form').onsubmit = function () {
+				//디폴트 이벤트 제한 : 동의합니다를 check하지 않으면 제한
+				var agreeYes = document.querySelector('input[name="agree"]');//값 여러개여도 첫번째 값만 가져옴
+				if(!agreeYes.checked){
+					alert('동의하셔야 진행됩니다.');
+					return false;
+				}
+			};
+	};
+  </script>
+</head>
+<body>
+  <fieldset>
+  한글처리
+Tomcat 서버의 기본 문자 처리 방식은 IOS-8859-1 방식 입니다. 따라서 개발자가 별도의 한글 인코딩을 하지 않으면 한글이 깨져 보이는 현상이 있습니다.
+response객체인지, request객체인지 따라서 한글처리 방식에 차이가 있습니다
+response객체 : response.setContentType
+request객체(POST방식) : request.setCharacterEncoding
+  </fieldset>
+  <form action="">
+  	<input type="radio" name="agree" value="yes">동의합니다.
+  	<input type="radio" name="agree" value="no">동의하지 않습니다.
+  	<input type="submit" value="다음">
+  </form>
+</body>
+</html>

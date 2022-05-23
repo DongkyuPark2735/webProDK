@@ -31,4 +31,6 @@ public class Exam2 extends HttpServlet {
 		doGet(request, response);
 	}
 
+	
+	
 }
