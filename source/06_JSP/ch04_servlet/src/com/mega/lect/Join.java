@@ -72,8 +72,6 @@ public class Join extends HttpServlet {
 					out.println(hobby[i] + ",");					
 				}
 			}
-		}else {
-			out.println("선택된 취미가 없음");
 		}
 		out.println("</h2>");
 		out.println("<h2> 성별 : " + gender+"</h2>");

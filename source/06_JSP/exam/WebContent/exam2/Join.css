@@ -1,0 +1,32 @@
+@charset "UTF-8";
+*{
+	margin : 0;
+	padding: 0;
+}
+hr{
+	color: #7878E1;
+}
+li{
+	list-style: none;
+}
+#wrap{
+	width: 500px;
+	border: 2px solid #7878E1;	
+	margin : 0 auto;
+	text-align: center;
+}
+#wrap ul li{
+	float: left;
+	width: 150px;
+	height: 50px;
+	display: inline-block;
+	box-sizing: border-box;
+}
+#wrap table{margin:0 auto; color:#A47160;}
+#wrap table tr{height:40px; }
+#wrap table tr{
+	width:120px;        	font-size:0.9em;
+	color:#3F3F48;      	text-align:left;    	padding-left:10px;
+}
+#wrap table td {width: 300px;}
+}
