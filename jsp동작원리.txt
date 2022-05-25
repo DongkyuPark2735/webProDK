@@ -1,0 +1,16 @@
+jsp 동작원리 
+
+이클립스없는 톰캣에 웹어플리케이션(ch05_jsp)을 실행할 수 있도록 배포
+
+배포할 소스 : 배포할  소스폴더 위치
+배포할 톰캣 : 배포할  톰켓폴더 위치 
+
+톰켓이    webapps : 소스배포? 
+	work : jsp를 서블렛으로 바꾸는 공간
+	wtpwebapps
+
+1.톰캣 webapps에 xx폴더 생성 
+
+2.소스폴더의 webContent폴더 안에 있는 모든 내용을 xx폴더 밑에 복사 
+3. 소스폴더의 build폴더 밑에 있는 모든 내용을 xx폴더 아래 WEB-INF
+4. 톰캣 부팅(startip 反. shutdown)
