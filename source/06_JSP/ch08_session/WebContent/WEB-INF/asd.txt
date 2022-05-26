@@ -1,0 +1,4 @@
+오늘은 DB에 insert대신 파일 출력
+아이디 : asd
+비밀번호 : asd
+이름 : asd
