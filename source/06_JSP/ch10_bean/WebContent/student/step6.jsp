@@ -9,6 +9,7 @@
 <body>
   <jsp:useBean id="st" class="com.lec.ex.Student" scope="request"/>
 		<jsp:setProperty name="st" property="*"/>
+		
 		<jsp:forward page="stResult.jsp"/>  	
 </body>
 </html>

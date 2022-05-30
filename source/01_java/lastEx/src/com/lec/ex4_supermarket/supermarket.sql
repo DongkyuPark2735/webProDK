@@ -1,10 +1,10 @@
--- Å×ÀÌºí »èÁ¦ 
+-- í…Œì´ë¸” ì‚­ì œ 
 DROP TABLE CUSLEVEL;
-DROP TABLE CUSTOMER; -- ÇÏÀ§ Å×ÀÌºí ¸ÕÀú »èÁ¦ 
--- DROP TABLE CUS_LEVEL CASCADE CONSTRAINTS; -- Áö¾ç, ÂüÁ¶ ¹«½ÃÇÏ°í »èÁ¦ 
+DROP TABLE CUSTOMER; -- í•˜ìœ„ í…Œì´ë¸” ë¨¼ì € ì‚­ì œ 
+-- DROP TABLE CUS_LEVEL CASCADE CONSTRAINTS; -- ì§€ì–‘, ì°¸ì¡° ë¬´ì‹œí•˜ê³  ì‚­ì œ 
 DROP SEQUENCE CUSTOMER_SQ;
 
--- Å×ÀÌºí »ý¼º 
+-- í…Œì´ë¸” ìƒì„± 
 CREATE TABLE CUSLEVEL(
     LEVELNO NUMBER(1,0) PRIMARY KEY,
     LEVELNAME VARCHAR(20) NOT NULL,
@@ -15,7 +15,7 @@ SELECT * FROM CUSLEVEL;
 CREATE TABLE CUSTOMER(
     CUSID NUMBER(6) PRIMARY KEY,
     CUSNAME VARCHAR2(20) NOT NULL,
-    CUSTEL VARCHAR(20) NOT NULL UNIQUE, -- ÀüÈ­¹øÈ£´Â ¹Ýµå½Ã VARCHAR2 0ÀÌ ³¯¶ó°¡±â¶§¹®
+    CUSTEL VARCHAR(20) NOT NULL UNIQUE, -- ì „í™”ë²ˆí˜¸ëŠ” ë°˜ë“œì‹œ VARCHAR2 0ì´ ë‚ ë¼ê°€ê¸°ë•Œë¬¸
     CUSPOINT NUMBER(9) DEFAULT 1000, 
     CUSAMOUNT NUMBER(9) DEFAULT 0,
     LEVELNO  NUMBER(1,0) DEFAULT 1,
@@ -35,89 +35,90 @@ INSERT INTO CUSLEVEL VALUES(3, 'GOLD', 2000000,2999999);
 INSERT INTO CUSLEVEL VALUES(4, 'DIAMOND', 3000000,3999999);
 INSERT INTO CUSLEVEL VALUES(5, 'VVIP', 4000000,999999999);
 
---INSERT INTO CUSTOMER VALUES((TO_CHAR(SYSDATE,'YYYY')||TRIM(TO_CHAR(CUSTOMER_SQ.NEXTVAL, '0000'))), 'È«±æµ¿','010-9999-9999'
+--INSERT INTO CUSTOMER VALUES((TO_CHAR(SYSDATE,'YYYY')||TRIM(TO_CHAR(CUSTOMER_SQ.NEXTVAL, '0000'))), 'í™ê¸¸ë™','010-9999-9999'
 --                                         ,10000, 1000000, 1);
---INSERT INTO CUSTOMER VALUES((TO_CHAR(SYSDATE,'YYYY')||TRIM(TO_CHAR(CUSTOMER_SQ.NEXTVAL, '0000'))), 'ÀÌ±æµ¿','010-9786-9559'
+--INSERT INTO CUSTOMER VALUES((TO_CHAR(SYSDATE,'YYYY')||TRIM(TO_CHAR(CUSTOMER_SQ.NEXTVAL, '0000'))), 'ì´ê¸¸ë™','010-9786-9559'
 --                                         ,20000, 3000000, 3);
---INSERT INTO CUSTOMER VALUES((TO_CHAR(SYSDATE,'YYYY')||TRIM(TO_CHAR(CUSTOMER_SQ.NEXTVAL, '0000'))), '±è±æµ¿','010-9719-9111'
+--INSERT INTO CUSTOMER VALUES((TO_CHAR(SYSDATE,'YYYY')||TRIM(TO_CHAR(CUSTOMER_SQ.NEXTVAL, '0000'))), 'ê¹€ê¸¸ë™','010-9719-9111'
 --                                         ,30000, 4000000, 4);
 
-INSERT INTO CUSTOMER (CUSID, CUSNAME, CUSTEL) VALUES (CUSTOMER_SQ.NEXTVAL,  'È«±æµ¿','010-9999-9999');
-INSERT INTO CUSTOMER VALUES (CUSTOMER_SQ.NEXTVAL,  '¹Ú±æµ¿','010-8888-9999', 0 ,4000000 , 5);
-INSERT INTO CUSTOMER VALUES (CUSTOMER_SQ.NEXTVAL, '½Å±æµ¿','010-7777-7777' , 0 ,100000 , 1);
+INSERT INTO CUSTOMER (CUSID, CUSNAME, CUSTEL) VALUES (CUSTOMER_SQ.NEXTVAL,  'í™ê¸¸ë™','010-9999-9999');
+INSERT INTO CUSTOMER VALUES (CUSTOMER_SQ.NEXTVAL,  'ë°•ê¸¸ë™','010-8888-9999', 0 ,4000000 , 5);
+INSERT INTO CUSTOMER VALUES (CUSTOMER_SQ.NEXTVAL, 'ì‹ ê¸¸ë™','010-7777-7777' , 0 ,100000 , 1);
 
 
 SELECT * FROM CUSTOMER;
--- 0. ·¹º§ ÀÌ¸§µé °Ë»ö : Vector<String> getLevelNames()
+-- 0. ë ˆë²¨ ì´ë¦„ë“¤ ê²€ìƒ‰ : Vector<String> getLevelNames()
 SELECT LEVELNAME FROM CUSLEVEL;
--- 1. ¾ÆÀÌµð °Ë»ö : CustomerDTO cidGetCustomer( int )
+-- 1. ì•„ì´ë”” ê²€ìƒ‰ : CustomerDTO cidGetCustomer( int )
     -- CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, forLevelUp
 (SELECT CUSID FROM CUSTOMER  WHERE CUSID = 99);
 SELECT CUSID, CUSTEL, CUSNAME, CUSPOINT, CUSAMOUNT, LEVELNAME,
         (SELECT HIGH +1 - CUSAMOUNT FROM CUSTOMER WHERE CUSID = C.CUSID AND LEVELNO != 5)  forLevelUp
     FROM CUSTOMER C, CUSLEVEL L
     WHERE C.LEVELNO = L.LEVELNO AND CUSID = 1;
--- 2. Æù4ÀÚ¸® °Ë»ö : ArrayList<CustomerDTO> cTelGetCustomer(String cTel);
+-- 2. í°4ìžë¦¬ ê²€ìƒ‰ : ArrayList<CustomerDTO> cTelGetCustomer(String cTel);
     -- CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, forLevelUp
 SELECT CUSID, CUSTEL, CUSNAME, CUSPOINT, CUSAMOUNT, LEVELNAME,
         (SELECT HIGH +1 - CUSAMOUNT FROM CUSTOMER WHERE CUSID = C.CUSID AND LEVELNO != 5)  forLevelUp
     FROM CUSTOMER C, CUSLEVEL L
     WHERE C.LEVELNO = L.LEVELNO AND CUSTEL LIKE '%'||'9999';
--- 3. °í°´ ÀÌ¸§ °Ë»ö :  ArrayList<CustomerDTO> cNameGetCustomer(String cName);
+-- 3. ê³ ê° ì´ë¦„ ê²€ìƒ‰ :  ArrayList<CustomerDTO> cNameGetCustomer(String cName);
     -- CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, forLevelUp
 SELECT CUSID, CUSTEL, CUSNAME, CUSPOINT, CUSAMOUNT, LEVELNAME,
         (SELECT HIGH +1 - CUSAMOUNT FROM CUSTOMER WHERE CUSID = C.CUSID AND LEVELNO != 5)  forLevelUp
     FROM CUSTOMER C, CUSLEVEL L
-    WHERE C.LEVELNO = L.LEVELNO AND CUSNAME = 'È«±æµ¿' ORDER BY CUSAMOUNT DESC;
--- 4. Æ÷ÀÎÆ®·Î¸¸ ±¸¸Å : Int buyWithPoint(int cId, int cAmoint) (1¹ø ID°¡ 100¿ø ±¸¸Å)
+    WHERE C.LEVELNO = L.LEVELNO AND CUSNAME = 'í™ê¸¸ë™' ORDER BY CUSAMOUNT DESC;
+-- 4. í¬ì¸íŠ¸ë¡œë§Œ êµ¬ë§¤ : Int buyWithPoint(int cId, int cAmoint) (1ë²ˆ IDê°€ 100ì› êµ¬ë§¤)
     -- 
 UPDATE CUSTOMER SET CUSPOINT = CUSPOINT - 100 WHERE CUSID = 1  ;
 UPDATE CUSTOMER SET CUSPOINT = CUSPOINT +300000 WHERE CUSID = 3  ;
 
 COMMIT;
--- 5. ¹°Ç° ±¸¸Å : int buy(int cId, int cAmount ) 
-    -- ¹°Ç°±¸¸Å update¿¡´Â cpoint, cAmount, levelNo°¡ ¼öÁ¤ µÇ¾î¾ßÇÔ 
-    -- 5-1 CUSPOINT, CUSAMOUNT º¯°æ
+-- 5. ë¬¼í’ˆ êµ¬ë§¤ : int buy(int cId, int cAmount ) 
+    -- ë¬¼í’ˆêµ¬ë§¤ updateì—ëŠ” cpoint, cAmount, levelNoê°€ ìˆ˜ì • ë˜ì–´ì•¼í•¨ 
+    -- 5-1 CUSPOINT, CUSAMOUNT ë³€ê²½
 UPDATE CUSTOMER SET CUSPOINT = CUSPOINT + (1000000*0.05), CUSAMOUNT = CUSAMOUNT + 1000000 WHERE CUSID = 1  ;
+SELECT * FROM EMP;
 
 SELECT * FROM CUSTOMER;
-    -- 5-2 LEVELNO º¯°æÇÏ±â Àü Çö ·¹º§¹øÈ£¿Í ¼öÁ¤µÉ ·¹º§ ¹øÈ£
+    -- 5-2 LEVELNO ë³€ê²½í•˜ê¸° ì „ í˜„ ë ˆë²¨ë²ˆí˜¸ì™€ ìˆ˜ì •ë  ë ˆë²¨ ë²ˆí˜¸
 SELECT CUSID, CUSNAME,CUSAMOUNT, C.LEVELNO , L.LEVELNO 
     FROM CUSTOMER C, CUSLEVEL L
     WHERE CUSAMOUNT BETWEEN LOW AND HIGH AND CUSID = 1;
     -- 5-3 LEVELNO
 UPDATE CUSTOMER SET LEVELNO = (
-SELECT L.LEVELNO ¼öÁ¤ÇÒ·¹º§ 
+SELECT L.LEVELNO ìˆ˜ì •í• ë ˆë²¨ 
     FROM CUSTOMER C, CUSLEVEL L
     WHERE CUSAMOUNT BETWEEN LOW AND HIGH AND CUSID = 1)
     WHERE CUSID = 1;
-    -- 5-1°ú 5-3À» ÇÑ¹®Àå¿¡ 
+    -- 5-1ê³¼ 5-3ì„ í•œë¬¸ìž¥ì— 
 UPDATE CUSTOMER SET CUSPOINT = CUSPOINT + (1000000*0.05), CUSAMOUNT = CUSAMOUNT + 1000000,
-    LEVELNO = (SELECT L.LEVELNO ¼öÁ¤ÇÒ·¹º§ 
+    LEVELNO = (SELECT L.LEVELNO ìˆ˜ì •í• ë ˆë²¨ 
                      FROM CUSTOMER C, CUSLEVEL L
                      WHERE CUSAMOUNT+1000000 BETWEEN LOW AND HIGH AND CUSID = 1)
-                     WHERE CUSID = 1; -- DAO¿¡ µé¾î°¥ Äõ¸®  -- ¹Ù±ùÂÊ CUSID ¾ø¾îµµ µÉ?
+                     WHERE CUSID = 1; -- DAOì— ë“¤ì–´ê°ˆ ì¿¼ë¦¬  -- ë°”ê¹¥ìª½ CUSID ì—†ì–´ë„ ë ?
     
--- 6. µî±Þº° Ãâ·Â : ArrayList<CustomerDTO> levelNameGetCustomer(String levelName) 
+-- 6. ë“±ê¸‰ë³„ ì¶œë ¥ : ArrayList<CustomerDTO> levelNameGetCustomer(String levelName) 
         -- CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, forLevelUp
 SELECT CUSID, CUSTEL, CUSNAME, CUSPOINT, CUSAMOUNT, LEVELNAME,
         (SELECT HIGH +1 - CUSAMOUNT FROM CUSTOMER WHERE CUSID = C.CUSID AND LEVELNO != 5)  forLevelUp
     FROM CUSTOMER C, CUSLEVEL L
     WHERE C.LEVELNO = L.LEVELNO AND LEVELNAME = 'BRONZE' ORDER BY CUSAMOUNT DESC;
--- 7. ÀüÃ¼ Ãâ·Â : ArrayList<CustomerDTO>getCustomers() 
+-- 7. ì „ì²´ ì¶œë ¥ : ArrayList<CustomerDTO>getCustomers() 
         -- CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, forLevelUp
 SELECT CUSID, CUSTEL, CUSNAME, CUSPOINT, CUSAMOUNT, LEVELNAME,
         (SELECT HIGH +1 - CUSAMOUNT FROM CUSTOMER WHERE CUSID = C.CUSID AND LEVELNO != 5)  forLevelUp
     FROM CUSTOMER C, CUSLEVEL L
     WHERE C.LEVELNO = L.LEVELNO ORDER BY CUSAMOUNT DESC;
--- 8. È¸¿ø°¡ÀÔ : int insertCustomer(String cTel,Stirng cName)
+-- 8. íšŒì›ê°€ìž… : int insertCustomer(String cTel,Stirng cName)
                 -- int insertCustomer(CustomerDTO dto)
 INSERT INTO CUSTOMER(CUSID, CUSTEL, CUSNAME)
-    VALUES (CUSTOMER_SQ.NEXTVAL, '010-6666-6666', 'À¯±æµ¿');
+    VALUES (CUSTOMER_SQ.NEXTVAL, '010-6666-6666', 'ìœ ê¸¸ë™');
     SELECT * FROM CUSTOMER;
--- 9. ¹øÈ£ ¼öÁ¤ : int updateCustomer(int cId, String cTel) 
+-- 9. ë²ˆí˜¸ ìˆ˜ì • : int updateCustomer(int cId, String cTel) 
  UPDATE CUSTOMER SET CUSTEL = '010-5555-5555' WHERE CUSID = 4;
--- 10. È¸¿ø Å»Åð :  int deleteCustomer(String cTel)
+-- 10. íšŒì› íƒˆí‡´ :  int deleteCustomer(String cTel)
 DELETE FROM CUSTOMER WHERE CUSTEL = '010-5555-5555';
 COMMIT;
 
@@ -128,22 +129,22 @@ COMMIT;
 
 
 
--- 0. ·¹º§ÀÌ¸§µé °Ë»ö : public Vector<String> getLevelNames()
--- 1. cId·Î °Ë»ö : public CustomerDto cIdGetCustomer(int cId)
--- 2. ÆùµÚ4ÀÚ¸®(FULL) °Ë»ö - CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ·¹º§¾÷À» À§ÇÑ ¾µ µ·
+-- 0. ë ˆë²¨ì´ë¦„ë“¤ ê²€ìƒ‰ : public Vector<String> getLevelNames()
+-- 1. cIdë¡œ ê²€ìƒ‰ : public CustomerDto cIdGetCustomer(int cId)
+-- 2. í°ë’¤4ìžë¦¬(FULL) ê²€ìƒ‰ - CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ë ˆë²¨ì—…ì„ ìœ„í•œ ì“¸ ëˆ
 -- public ArrayList<CustomerDto> cTelGetCustomers(String cTel);
--- 3. °í°´ÀÌ¸§°Ë»ö - CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ·¹º§¾÷À» À§ÇÑ ¾µ µ·
+-- 3. ê³ ê°ì´ë¦„ê²€ìƒ‰ - CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ë ˆë²¨ì—…ì„ ìœ„í•œ ì“¸ ëˆ
 -- public ArrayList<CustomerDto> cNameGetCustomers(String cName);
--- 4. Æ÷ÀÎÆ®·Î¸¸ ±¸¸Å(1000¿øÂ¥¸®¸¦ Æ÷ÀÎÆ®·Î¸¸ ±¸¸Å) : public int buyWithPoint(int cAmount, int cId)
--- 5. ¹°Ç°±¸¸Å (1000000¿øÂ¥¸®¸¦ ±¸¸ÅÇÒ °æ¿ì. Æ÷ÀÎÆ®´Â ±¸¸Å±Ý¾×ÀÇ 5%)
--- ¹°Ç°±¸¸Å½Ã UPDATE 2È¸ ÇÊ¿ä(±¸¸Å´©Àû±Ý¾× UPDATE¿Í LEVELNO UPDATE)
+-- 4. í¬ì¸íŠ¸ë¡œë§Œ êµ¬ë§¤(1000ì›ì§œë¦¬ë¥¼ í¬ì¸íŠ¸ë¡œë§Œ êµ¬ë§¤) : public int buyWithPoint(int cAmount, int cId)
+-- 5. ë¬¼í’ˆêµ¬ë§¤ (1000000ì›ì§œë¦¬ë¥¼ êµ¬ë§¤í•  ê²½ìš°. í¬ì¸íŠ¸ëŠ” êµ¬ë§¤ê¸ˆì•¡ì˜ 5%)
+-- ë¬¼í’ˆêµ¬ë§¤ì‹œ UPDATE 2íšŒ í•„ìš”(êµ¬ë§¤ëˆ„ì ê¸ˆì•¡ UPDATEì™€ LEVELNO UPDATE)
 -- public int buy(int cAmount, int cId)
--- 6. µî±Þº°Ãâ·Â - CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ·¹º§¾÷À»À§ÇÑ¾µµ·
+-- 6. ë“±ê¸‰ë³„ì¶œë ¥ - CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ë ˆë²¨ì—…ì„ìœ„í•œì“¸ëˆ
 -- public ArrayList<CustomerDto> levelNameGetCustomers(String levelName)
--- 7.ÀüÃ¼Ãâ·Â - CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ·¹º§¾÷À»À§ÇÑ¾µµ·
+-- 7.ì „ì²´ì¶œë ¥ - CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, ë ˆë²¨ì—…ì„ìœ„í•œì“¸ëˆ
 -- public ArrayList<CustomerDto> getCustomers()
--- 8. È¸¿ø°¡ÀÔ(°í°´ÀüÈ­¿Í °í°´ÀÌ¸§Àº ÀÔ·Â¹Þ¾Æ INSERT)
+-- 8. íšŒì›ê°€ìž…(ê³ ê°ì „í™”ì™€ ê³ ê°ì´ë¦„ì€ ìž…ë ¥ë°›ì•„ INSERT)
 -- public int insertCustomer(String cTel, String cName)
--- 9. ¹øÈ£¼öÁ¤ : public int updateCustomer(String cTel, int cId)
--- 10. È¸¿øÅ»Åð : public int deleteCustomer(String cTel
+-- 9. ë²ˆí˜¸ìˆ˜ì • : public int updateCustomer(String cTel, int cId)
+-- 10. íšŒì›íƒˆí‡´ : public int deleteCustomer(String cTel
 

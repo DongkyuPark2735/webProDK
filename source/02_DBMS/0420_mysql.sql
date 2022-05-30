@@ -4,11 +4,17 @@
 -- java에서 쓸 데이터 넣고 연습해 보기
 
 show databases; -- databases 테이블 보기
+
+use kimdb;
+select * from personal; -- jsp에서 출력
+
 -- DCL(계정 생성, 권한 부여, 권한 박탈, 계정 제거) 
 create user user01 identified by 'password'; -- 계정 생성 
 grant all privileges on *.* to user01; -- 모든 권한 부여
 revoke all on *.* from user01; -- 권한 박탈
 drop user user01;
+ 
+ 
  
 -- 데이터 베이스로 들어감 --데이터 베이스 안에 들어가서 만들어야함 
 create database kimdb; -- 새로운 kimdb 데이터베이스 생성

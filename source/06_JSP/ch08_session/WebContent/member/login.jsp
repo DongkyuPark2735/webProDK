@@ -23,7 +23,7 @@
 						<th><label for="id">아이디</label></th>
 						<td><input type="text" name="id" id="id" value="<%
 						if(id!=null){
-							out.print(id);
+							out.print(id);//화면에 뿌린다????????? 
 						}%>" required="required" autofocus="autofocus">
 						</td>
 					</tr>
