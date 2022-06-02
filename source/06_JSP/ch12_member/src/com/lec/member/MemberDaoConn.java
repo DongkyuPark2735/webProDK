@@ -9,7 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
-public class MemberDao {
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class MemberDaoConn {
 	public static final int SUCCESS = 1;
 	public static final int FAIL = 0;
 	public static final int MEMBER_EXISTENT = 0; // 중복된 id일떄 리턴값
@@ -18,22 +23,34 @@ public class MemberDao {
 	public static final int LOGIN_FAIL_ID = -1; // 로그인시 id오류일 때 리턴값
 	public static final int LOGIN_FAIL_PW = 0; // 로그인시 pw오류일 때 리턴값
 
-	private static MemberDao INSTANCE;
-
-	public static MemberDao getInstance() {
-		if (INSTANCE == null) {
-			INSTANCE = new MemberDao();
-		}
-		return INSTANCE;
-	}
-
-	private MemberDao() {
-	}
+//	private static MemberDaoConn INSTANCE;
+//
+//	public static MemberDaoConn getInstance() {
+//		if (INSTANCE == null) {
+//			INSTANCE = new MemberDaoConn();
+//		}
+//		return INSTANCE;
+//	}   //싱글톤 없어도됨?
+//
+//	private MemberDaoConn() {
+//	}
 
 	// DB연결 매소드 // conn객체 리턴하는 함수
-	private Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
+	private Connection getConnection() throws SQLException{
+		//커넥션풀의 DataSource안에 conn객체 이용
+		Connection conn = null;
+		try {
+			Context ctx = new InitialContext();
+			//javax.naming		//javax.naming.initial
+			DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Oracle11g");
+			//다른 데이터 타입으로 커넥션풀을 묶을수도 있음
+			//ds안에 conn객체있음
+			conn = ds.getConnection();
+			//context안에 커넥션풀의 정보를 잘못 입력했을때의 오류발생
+		} catch (NamingException e) {
+			System.out.println("커넥션 풀 이름 오류 : " +e.getMessage());
+		} 
+		
 		return conn;
 	}
 
