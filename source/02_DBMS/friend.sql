@@ -26,7 +26,7 @@ INSERT INTO FRIEND(FNO, FNAME, FTEL) VALUES(FRIEND_SQ.NEXTVAL, '홍길수', '010
 -- 친구 검색
 -- 이름검색?
 -- public Friends searchFriends(String fname)
-SELECT * FROM FRIEND WHERE FNAME LIKE '%%' ;
+SELECT * FROM FRIEND WHERE FNAME LIKE '% %' ;
 SELECT * FROM FRIEND;
 
 
