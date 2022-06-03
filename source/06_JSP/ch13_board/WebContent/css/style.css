@@ -14,3 +14,6 @@ h2, b{text-align: center; color:red;}
 a { text-decoration: none; color:black}
 .left{text-align: left;}
 .paging {text-align: center;}
+input:not(.btn), textarea {
+	width: 90%;
+}
