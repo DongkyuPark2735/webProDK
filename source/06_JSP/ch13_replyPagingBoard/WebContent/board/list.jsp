@@ -54,13 +54,17 @@
 					//글제목<td class='left'><img src='/ch13_board/img/hot.gif'>
 					//<a href='/ch13_board/board/content.jsp'>글제목</a></td>
 					out.println("<td class='left'>");
+					
+					
 					// 답변글 들여쓰기 - re.gif출력
-
 					if (dto.getRe_indent() > 0) {
-						int width = dto.getRe_indent() * 30;
-						// <img src= '../img/re.fig' width=width, height='10'>
-						out.println("<img src='../img/re.gif' width='"+width+"' height='10'>");
+						int width = dto.getRe_indent() * 10;
+						// <img src='../img/level.gif' Width=width height='10'> 들여쓰기 공간 확보
+						// <img src= '../img/re.gif'>
+						out.println("<img src='../img/level.gif' width='"+width+"' height='10'>");
+						out.println("<img src='../img/re.gif'width='10' height='10'>");
 					}
+
 					
 					//조회수가 10초과시 hot.gif 이미지 출력
 					if (dto.getReadcount() > 10) {
