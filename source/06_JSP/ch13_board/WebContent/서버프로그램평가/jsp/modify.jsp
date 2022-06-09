@@ -40,46 +40,46 @@
   	<table>
   		<caption>정보수정</caption>
   		  <tr>
-  		  	<th>아이디</th><td><input type="text" name="id" value="<%=cid%>" readonly="readonly"></td>
+  		  	<th>아이디</th><td><input type="text" name="cid" value="<%=cid%>" readonly="readonly"></td>
   			</tr>
   			<tr>
   		  	<th>기존 비밀번호</th><td><input type="password" name="oldPw" required="required"></td>
   			</tr>
   			<tr>
-  		  	<th>새 비밀번호</th><td><input type="password" name="pw" 
+  		  	<th>새 비밀번호</th><td><input type="password" name="cpw" 
   		  															placeholder="비밀번호 수정을 원하지 않으시면 비워두세요"></td>
   			</tr>
   			<tr>
   		  	<th>새 비밀번호</th><td><input type="password" name="pwChk"></td>
   			</tr>
   			<tr>
-  		  	<th>이름</th><td><input type="text" name="name" value="<%=cname%>" required="required"></td>
+  		  	<th>이름</th><td><input type="text" name="cname" value="<%=cname%>" required="required"></td>
   			</tr>
   			<tr>
   		  	<th>전화번호</th>
   		  	<td>
-  		  		<input type="text" name="phone3" size="2" value='<%=ctel!=null? ctel:""%>'>
+  		  		<input type="text" name="ctel" value='<%=ctel!=null? ctel:""%>'>
   		  	</td>
   			</tr>
 				<tr>
 					<th>성별</th>
 					<td>
 						<%if("m".equals(cgender)){%>
-							 	<input type="radio" name="gender" value="m" checked="checked">남
-								<input type="radio" name="gender" value="f">여
+							 	<input type="radio" name="cgender" value="m" checked="checked">남
+								<input type="radio" name="cgender" value="f">여
 						<%}else if("f".equals(cgender)){ %>
-							 	<input type="radio" name="gender" value="m">남
-								<input type="radio" name="gender" value="f" checked="checked">여
+							 	<input type="radio" name="cgender" value="m">남
+								<input type="radio" name="cgender" value="f" checked="checked">여
 						<%}else{%>			 
-							 	<input type="radio" name="gender" value="m">남
-								<input type="radio" name="gender" value="f">여
+							 	<input type="radio" name="cgender" value="m">남
+								<input type="radio" name="cgender" value="f">여
 					  <%}%> 
 					</td>
 				</tr>
 				<tr>
 					<th>이메일</th>
 					<td>		
-						<input type="email" name="email" value='<%=cemail!=null? cemail:""%>'>
+						<input type="email" name="cemail" value='<%=cemail!=null? cemail:""%>'>
 					</td>
 				</tr>
 				<tr>
@@ -91,7 +91,7 @@
 				</tr>
 				<tr>
   		  	<th>주소</th>
-  		  	<td><input type="text" name="address" value='<%=caddress!=null? caddress:""%>'></td>
+  		  	<td><input type="text" name="caddress" value='<%=caddress!=null? caddress:""%>'></td>
   			</tr>
 				<tr>
 					<td colspan="2">

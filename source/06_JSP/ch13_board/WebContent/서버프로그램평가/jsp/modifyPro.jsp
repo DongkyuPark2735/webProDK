@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@page import="com.lec.dao.CustomerDAO"%>
 <%@page import="com.lec.dto.CustomerDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,6 +20,9 @@
 	<jsp:useBean id="dto" class="com.lec.dto.CustomerDTO" />
 	<jsp:setProperty name="dto" property="*" />
 	<%
+	
+	dto.setCbirth(Date.valueOf(request.getParameter("tempbirth")));
+	
 	CustomerDTO tempdto = (CustomerDTO)session.getAttribute("infodto");
 	String sessionPw = null;
 	
