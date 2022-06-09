@@ -14,7 +14,7 @@
 <%
 	int num = 0;
 	BoardDTO dto = new BoardDTO();
-  String pageNum = request.getParameter("pageNum");
+  	String pageNum = request.getParameter("pageNum");
 	if(pageNum == null){
 		pageNum = "1";
 	}
@@ -63,7 +63,6 @@
   							 onclick="location.href='list.jsp?pageNum=<%=pageNum %>'">
   			</td>
   		</tr>
-			  		
   	</table>
   </form>
 </body>

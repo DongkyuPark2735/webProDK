@@ -27,7 +27,7 @@ public class BoardDAO {
 		}
 		return INSTACNE;
 	}
-	
+
 	private BoardDAO() {
 	}
 	// connection 객체를 받아오는 함수 : getConnection()
@@ -56,7 +56,7 @@ public class BoardDAO {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
+
 			rs.next();
 
 			totalCnt = rs.getInt(1); // 0번 없음 1열의 데이터를 int값으로 받아옴
@@ -88,6 +88,56 @@ public class BoardDAO {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int num = rs.getInt("num");
+				String writer = rs.getString("writer");
+				String subject = rs.getString("subject");
+				String content = rs.getString("content");
+				String email = rs.getString("email");
+				int readcount = rs.getInt("readcount");
+				String pw = rs.getString("pw");
+				int ref = rs.getInt("ref");
+				int re_step = rs.getInt("re_step");
+				int re_indent = rs.getInt("re_indent");
+				String ip = rs.getString("ip");
+				Timestamp rdate = rs.getTimestamp("rdate");
+				dtos.add(new BoardDTO(num, writer, subject, content, email, readcount, pw, ref, re_step, re_indent, ip,
+						rdate));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return dtos;
+	}
+
+	// 2-1. 페이지 위한 글목록: public ArrayList<BoardDTO> listBoard()
+	public ArrayList<BoardDTO> listBoard(int statRow, int endRow) {
+		ArrayList<BoardDTO> dtos = new ArrayList<BoardDTO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT *" + 
+						" FROM(SELECT ROWNUM RN, A.*" + 
+							" FROM (SELECT * FROM BOARD ORDER BY REF DESC, RE_STEP) A)" + 
+						" WHERE BETWEEM ? AND ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, statRow);
+			pstmt.setInt(2, endRow);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {

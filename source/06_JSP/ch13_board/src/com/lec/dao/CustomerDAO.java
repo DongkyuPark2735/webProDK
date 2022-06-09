@@ -118,20 +118,24 @@ public class CustomerDAO {
 						" CADDRESS = ?," + 
 						" CGENDER = ?," + 
 						" CBIRTH = ?" + 
-						" WHERE CID = ?;";
+						" WHERE CID = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getCid());
-			pstmt.setString(2, dto.getCpw());
-			pstmt.setString(3, dto.getCname());
-			pstmt.setString(4, dto.getCtel());
-			pstmt.setString(5, dto.getCemail());
-			pstmt.setString(6, dto.getCaddress());
-			pstmt.setString(7, dto.getCgender());
+			pstmt.setString(1, dto.getCpw());
+			pstmt.setString(2, dto.getCname());
+			pstmt.setString(3, dto.getCtel());
+			pstmt.setString(4, dto.getCemail());
+			pstmt.setString(5, dto.getCaddress());
+			pstmt.setString(6, dto.getCgender());
+			pstmt.setDate(7, dto.getCbirth());
 			pstmt.setString(8, dto.getCid());
 			
 			result = pstmt.executeUpdate();
+		
+			if(result == SUCCESS) {
+				result = SUCCESS;
+			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}finally {
@@ -177,7 +181,7 @@ public class CustomerDAO {
 	}
 	//id 중복확인
 		public int checkIDCustomer(String cid) {
-			int result = FAIL;
+			int result = SUCCESS;
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -188,7 +192,7 @@ public class CustomerDAO {
 				pstmt.setString(1, cid);
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
-					result = SUCCESS;
+					result = FAIL;
 				}
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());

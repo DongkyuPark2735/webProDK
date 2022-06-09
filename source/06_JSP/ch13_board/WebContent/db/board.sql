@@ -63,6 +63,12 @@ UPDATE BOARD SET EMAIL = 'emaie@naver.com' WHERE NUM IN (7,4,5,9);
 
 SELECT * FROM BOARD;
 
+SELECT * 
+	FROM(SELECT ROWNUM RN, A.* 
+			FROM (SELECT * FROM BOARD ORDER BY REF, RE_STEP) A)
+				WHERE BETWEEM 11 AND 20; -- ROWNUM이 먼저 실행되기에 1번부터 출력하지않으면 안나옴 // 중간번호 안나옴
+				 
+
 
 
 

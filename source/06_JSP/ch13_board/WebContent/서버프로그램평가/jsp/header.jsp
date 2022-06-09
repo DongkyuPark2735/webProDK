@@ -38,8 +38,9 @@
 				String cname = null;
 				cid = (String)session.getAttribute("cid");
 				cname = (String)session.getAttribute("cname");
+				CustomerDTO dto = new CustomerDTO();
  			%>
-			<%if(cid==null){//로그인 전 헤더 메뉴 %>
+			<%if(cname==null ){//로그인 전 헤더 메뉴 %>
 				<ul> <!-- href경로 수정할것  index에서 실행할떄 -->
 					<li><a href="<%=conPath%>/서버프로그램평가/jsp/join.jsp">회원가입</a></li>
 					<li><a href="<%=conPath%>/서버프로그램평가/jsp/login.jsp">로그인</a></li>

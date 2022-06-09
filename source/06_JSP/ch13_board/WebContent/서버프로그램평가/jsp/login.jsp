@@ -16,11 +16,11 @@ String id = (String) session.getAttribute("id");
 	<jsp:include page="header.jsp" />
 	<%
 		String cid = (String)session.getAttribute("cid");
-		if(session.getAttribute("customer") != null){ //로그인 상태
+	if (session.getAttribute("infodto") != null) { //로그인 상태
 		response.sendRedirect("main.jsp");
 	}
 	%>
-	<form action="loginOk.jsp" method="post">
+	<form action="loginPro.jsp" method="post">
 		<table>
 			<caption>로그인</caption>
 			<tr>
@@ -34,20 +34,21 @@ String id = (String) session.getAttribute("id");
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="submit" value="로그인"> 
-					<input type="button" value="회원가입" onclick="location.href='join.jsp'">
+				<td colspan="2"><input type="submit" value="로그인"> <input
+					type="button" value="회원가입" onclick="location.href='join.jsp'">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<%
-						String msg = request.getParameter("msg");
-						if(msg != null) {
+					String msg = request.getParameter("msg");
+					if (msg != null) {
 					%>
- 					<p>아이디와 비밀번호를 잊으셧나요?</p> 
-				<%} %>
-					<p>아직 회원이 아니신가요?<a href="join.jsp">회원가입</a></p>
+					<p>아이디와 비밀번호를 잊으셧나요?</p> 
+				  <%} %>
+					<p>
+						아직 회원이 아니신가요?<a href="join.jsp">회원가입</a>
+					</p>
 				</td>
 			</tr>
 		</table>

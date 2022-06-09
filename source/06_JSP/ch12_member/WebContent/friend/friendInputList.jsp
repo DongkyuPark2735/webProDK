@@ -34,6 +34,7 @@
 
 								FriendDao fdao = FriendDao.getInstance();
 								ArrayList<FriendDto> fList = fdao.searchFriends(fname);
+						
 								
 								out.println("<table>");
 								out.println("<tr><th>순번</th><th>이름</th><th>연락처</th></tr>");

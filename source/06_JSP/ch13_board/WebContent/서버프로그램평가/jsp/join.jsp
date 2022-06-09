@@ -52,7 +52,7 @@
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td><input type="date" name="tmpcbirth" value="yyyy-MM-dd"></td>
+				<td><input type="date" name="tmpcbirth"></td>
 			</tr>
 			<tr>
 				<td colspan="2">

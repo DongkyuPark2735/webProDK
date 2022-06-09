@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@page import="com.lec.dao.CustomerDAO"%>
 <%@page import="com.lec.dto.CustomerDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,44 +20,50 @@
 	<jsp:useBean id="dto" class="com.lec.dto.CustomerDTO" />
 	<jsp:setProperty name="dto" property="*" />
 	<%
-	CustomerDTO tempdto = (CustomerDTO)session.getAttribute("infodto");
-	String sessionPw = null;
+	String tempbirth = request.getParameter("tempbirth");
+	dto.setCbirth(Date.valueOf(tempbirth));
 	
-	if (tempdto != null) {
-		sessionPw = tempdto.getCpw(); // 세션의 pw를 sessionpw에 할당
-	}
-	String oldPw = request.getParameter("oldPw");
+	CustomerDTO tempdto = (CustomerDTO) session.getAttribute("infodto");
+	String sessionPw = null;
 
-	if (sessionPw.equals(oldPw)) {//현 비밀번호를 맞게 입력한 경우 정보 수정 진행
-		//	새 비밀번호 (pw파라미터)가 null
-			if (dto.getCpw() == null) {
-				dto.setCpw(sessionPw);
-			}
-			CustomerDAO dao = CustomerDAO.getInstance();
-			int result = dao.modifyCustomer(dto);
-			if (result == CustomerDAO.SUCCESS) {// 수정성공
-				session.setAttribute("infodto", dto);//수정된 DB내용을 session 속성도 수정
-		%>
-		<script>
-	  	alert('정보 수정완료 됨었음. 확인하세요');
-			location.href = 'main.jsp';
-		</script>
-		<%
-			} else { // 수정실패
-		%>
-		<script>
-			alert('회원정보 수정이 실패되었습니다. 정보가 너무 깁니다.');
-			location.href = 'modify.jsp';
-		</script>
-		<%
-			}
-	} else { // 현 비밀번호를 틀리게 입력한 경우 정보 수정 안함
+	if (tempdto != null) {
+		sessionPw = tempdto.getCpw();
+	}
+	
+	String oldPw = request.getParameter("oldPw");
+	if (sessionPw.equals(oldPw)) {
+		if (dto.getCpw() == null) {
+			dto.setCpw(sessionPw);
+		}
+		CustomerDAO dao = CustomerDAO.getInstance();
+		int result = dao.modifyCustomer(dto);// 수정
+		
+		System.out.println(result);
+		if (result == CustomerDAO.SUCCESS) {
+			session.setAttribute("infodto", dto);
 	%>
-		<script>
-			alert('기존 비밀번호가 바르지 않습니다. 확인하세요');
-			history.back();
-		</script>
-	<%}%>
+	<script>
+		alert('정보 수정완료 됨었음. 확인하세요');
+		location.href = 'main.jsp';
+	</script>
+	<%
+		} else {
+	%>
+	<script>
+		alert('회원정보 수정이 실패되었습니다. 정보가 너무 깁니다.');
+		location.href = 'modify.jsp';
+	</script>
+	<%
+		}
+	} else {
+	%>
+	<script>
+		alert('기존 비밀번호가 바르지 않습니다. 확인하세요');
+		history.back();
+	</script>
+	<%
+		}
+	%>
 </body>
 </html>
 
