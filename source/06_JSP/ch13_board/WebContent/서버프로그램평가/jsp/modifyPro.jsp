@@ -20,8 +20,16 @@
 	<jsp:useBean id="dto" class="com.lec.dto.CustomerDTO" />
 	<jsp:setProperty name="dto" property="*" />
 	<%
+<<<<<<< HEAD
 	String tempbirth = request.getParameter("tempbirth");
 	dto.setCbirth(Date.valueOf(tempbirth));
+=======
+	
+	dto.setCbirth(Date.valueOf(request.getParameter("tempbirth")));
+	
+	CustomerDTO tempdto = (CustomerDTO)session.getAttribute("infodto");
+	String sessionPw = null;
+>>>>>>> 1c490507b1f327add191b48665f5fce63f6006bc
 	
 	CustomerDTO tempdto = (CustomerDTO) session.getAttribute("infodto");
 	String sessionPw = null;
