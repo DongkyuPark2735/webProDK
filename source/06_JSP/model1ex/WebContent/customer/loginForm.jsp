@@ -11,6 +11,12 @@
 	<title>Insert title here</title>
 	<link href="<%=conPath%>/css/login.css" rel="stylesheet">
 </head>
+<%
+	if(session.getAttribute("customer")!=null){
+		out.println("<script>alert('로그인 상태입니다.');");
+		out.println("location.href='../main/main.jsp'</script>");
+	}
+%>
 <body>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="loginForm_wrap">

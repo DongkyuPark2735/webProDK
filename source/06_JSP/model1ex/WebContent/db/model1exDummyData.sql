@@ -1,7 +1,5 @@
 -- 고객(CUSTOMER)테이블 DUMMY 데이터
 
-INSERT INTO CUSTOMER() VALUES();
-
 -- 도서(BOOK)테이블 DUMMY데이터
 
 -- 파일첨부게시판(FILEBOARD) 테이블 DUMMY 데이터

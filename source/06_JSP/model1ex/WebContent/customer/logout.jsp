@@ -4,11 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Insert title here</title>
-  <link href="<%=conPath%>/css/style.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-	<h2>공사중입니다</h2>  
+	<%
+		session.invalidate();
+	%>
+<script>
+	location.href='../main/main.jsp';
+</script>
+	
 </body>
 </html>
