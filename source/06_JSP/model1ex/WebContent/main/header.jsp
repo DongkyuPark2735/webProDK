@@ -20,14 +20,14 @@
 			<%if(session.getAttribute("customer")==null){  %>
 				<!-- 로그인 전 메뉴(우측부터) : 고객센터, 회원가입, 로그인 -->
 			<ul>
-				<li><a href="<%=conPath%>/fileboard/fboardlist.jsp">고객센터</a></li>
+				<li><a href="<%=conPath%>/fileboard/fboardList.jsp">고객센터</a></li>
 				<li><a href="<%=conPath%>/customer/joinForm.jsp">회원가입</a></li>
 				<li><a href="<%=conPath%>/customer/loginForm.jsp">로그인</a></li>
 			</ul>
 			<%}else{ %>
 				<!-- 로그인 후 메뉴(우측부터) : 고객센터, 로그아웃, 정보 수정, 고객이름 -->
 			<ul>
-				<li><a href="<%=conPath%>/fileboard/fboardlist.jsp">고객센터</a></li>
+				<li><a href="<%=conPath%>/fileboard/fboardList.jsp">고객센터</a></li>
 				<li><a href="<%=conPath%>/customer/logout.jsp">로그아웃</a></li>
 				<li><a href="<%=conPath%>/customer/modifyForm.jsp">정보수정</a></li>
 				<li><a href="#"><%=((CustomerDTO)session.getAttribute("customer")).getCname()%></a></li>

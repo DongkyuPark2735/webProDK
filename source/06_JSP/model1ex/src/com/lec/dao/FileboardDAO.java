@@ -234,7 +234,8 @@ public class FileboardDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM FILEBOARD WHERE FNUM = ?";
+		String sql = "SELECT F.*, CNAME, CEMAIL "
+				+ "	FROM FILEBOARD F, CUSTOMER C WHERE F.CID = C.CID AND FNUM = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

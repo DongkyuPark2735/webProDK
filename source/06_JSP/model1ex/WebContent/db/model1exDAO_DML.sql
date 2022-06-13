@@ -88,7 +88,9 @@ SELECT * FROM FILEBOARD WHERE FREF=5
     ORDER BY FRE_STEP;
 
 -- 6. 글 상세보기(FNUM으로 DTO가져오기)
-SELECT * FROM FILEBOARD WHERE FNUM = 8;
+SELECT F.*, CNAME, CEMAIL FROM FILEBOARD F, CUSTOMER C WHERE F.CID = C.CID AND FNUM = 6;
+
+select * from customer;
 
 -- 조회수 올리기
 UPDATE FILEBOARD SET FHIT = FHIT +1 WHERE FNUM= 4;
@@ -104,14 +106,11 @@ UPDATE FILEBOARD
 
 -- 8. 글 삭제하기
 select * from customer;
+select * from fileboard;
 
 DELETE FROM FILEBOARD WHERE cid= 'aa1';
 
 COMMIT;
-
-
-
-
 
 
 

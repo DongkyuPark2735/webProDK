@@ -32,10 +32,8 @@ String oldpw = request.getParameter("oldpw");
 
 if (sessoinCpw.equals(oldpw)) {
 	int result = CustomerDAO.FAIl;
-		System.out.println(newCpw);
 
 	if (newCpw == null) {
-		System.out.println(newCpw);
 		dtos.setCpw(oldpw);
 	}
 

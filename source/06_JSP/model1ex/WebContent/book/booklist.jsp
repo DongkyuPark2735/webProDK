@@ -34,7 +34,9 @@
  		<td>
  			<a href="detail.jsp?bid=<%=books.get(i).getBid() %>&pageNum=<%=pageNum%>">
  				<img src="../bookImg/<%=books.get(i).getBimage1() %>"><br>
+ 				
  				<%= books.get(i).getBtitle()%><br>
+ 				<%System.out.println(books.get(i));%>
  			</a>
  				<del><%=books.get(i).getBprice()  %></del>(<%=books.get(i).getBdiscount() %>할인)<br>
  				<b><%=books.get(i).getBprice() * (100-books.get(i).getBdiscount())/100 %>원</b>
@@ -67,8 +69,9 @@
 		%>
 	     [<a href="booklist.jsp?pageNum=<%=endPage+1 %>">다음</a>]
 		<%}%>
+		</div>
+			
 			<jsp:include page="../main/footer.jsp"/>
-	</div>				
 </body>
 </html>
 
