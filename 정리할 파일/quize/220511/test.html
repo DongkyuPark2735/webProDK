@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="test.css"
+          rel="stylesheet"
+          type="text/css">
+    <script>
+        function chk() {
+            if (frm.password.value != frm.passwordchk.value) {
+                alert('비밀번호가 일치하지않습니다.');
+                frm.passwordchk.value = '';
+                frm.passwordchk.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="#" method="get" name="frm" onsubmit="return chk()">
+        <fieldset>
+            <legend>필수입력</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">이 름</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name" name="name" placeholder="이름은 2글자 이상"
+                               pattern="[가-힣]+[가-힣]+" title="이름은 2글자 이상" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id">아이디</label>
+                    </td>
+                    <td>
+                        <input type="text" id="id" name="id" placeholder="ID는 4글자 이상"
+                               pattern="[a-zA-Z0-9가-힣]+[a-zA-Z0-9가-힣]+[a-zA-Z0-9가-힣]+[a-zA-Z0-9가-힣]+" title="ID는 4글자 이상" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">비밀번호</label>
+                    </td>
+                    <td>
+                        <input type="password" id="password" name="password"
+                                 pattern="[a-zA-Z0-9가-힣]+" title="password는 1글자 이상" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="passwordchk">비번확인</label>
+                    </td>
+                    <td>
+                        <input type="password" id="passwordchk" name="passwordchk" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="tel">전 화</label>
+                    </td>
+                    <td>
+                        <input type="tel" id="tel" name="tel" placeholder="xx-xxx-xxxx/000-0000-0000"
+                               title="전화번호 형식(010-0000-0000 / 02-0000-0000)을 지켜주세요"
+                               pattern="\d{2,3}[ .-]{0,1}\d{3,4}[ .-]{0,1}\d{3,4}" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">이메일</label>
+                    </td>
+                    <td>
+                        <input type="email" id="email" name="email" placeholder="xx@domin"
+                               title="이메일 형식에 맞춰 입력해주세요" 
+                               pattern="[a-zA-Z0-9][a-zA-Z0-9_.]+@[a-zA-Z]\w+(\.[a-z]+){1,2}"required />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>추가 입력 사항</legend>
+            <table>
+                <tr>
+                    <td>
+                       <label>결혼유무</label>
+                    </td>
+                    <td>
+                        <input type="radio" value="marriedyes" id="myyes" name="married" checked><label for="myyes">기혼</label>
+                        <input type="radio" value="marriedno" id="myno" name="married"><label for="myno">미혼</label><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       <label>자녀</label>
+                    </td>
+                    <td>
+                       <input type="checkbox" value="son" id="son" name="son" checked><label for="son">아들</label>
+                       <input type="checkbox" value="daughter" id="daughter" name="daughter"><label for="daughter">딸</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       <label>지역</label>
+                    </td>
+                    <td>
+                        <select name="location" size="1" >
+                          <option value="경기">경기</option>
+                          <option value="강원">강원</option>
+                          <option value="충천">충청</option>
+                          <option value="경상">경상</option>
+                          <option value="전라">전라</option>
+                        </select>
+                     </td>
+                 </tr>
+             </table>
+         </fieldset>
+        <table id="buttom">
+            <tr>
+                <td>
+                    <input type="submit" value="가입" />
+                    <input type="reset" value="취소" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

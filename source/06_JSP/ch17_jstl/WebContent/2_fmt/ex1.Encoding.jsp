@@ -11,9 +11,8 @@
   <link href="${conPath }/css/style.css" rel="stylesheet">
 </head>
 <body>
-  <form action="ex11_visitNumChoose.jsp">
-  	방문횟수<input type="number" name="visitNum" required="required">
-  	<input type="submit">  
-  </form>
+	<fmt:requestEncoding value="utf-8"/>
+	<%-- <%request.setCharacterEncoding("utf-8"); %> --%>
+	<h1>이름 : ${param.name }</h1>
 </body>
 </html>

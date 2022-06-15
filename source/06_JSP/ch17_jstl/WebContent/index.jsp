@@ -11,9 +11,7 @@
   <link href="${conPath }/css/style.css" rel="stylesheet">
 </head>
 <body>
-  <form action="ex11_visitNumChoose.jsp">
-  	방문횟수<input type="number" name="visitNum" required="required">
-  	<input type="submit">  
-  </form>
+  <h1><a href="${conPath }/empList">empList</a></h1>
+  <h1><a href="${conPath }/empSch">empSch</a></h1>
 </body>
 </html>

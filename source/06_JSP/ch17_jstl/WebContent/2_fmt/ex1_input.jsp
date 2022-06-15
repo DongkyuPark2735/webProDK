@@ -11,9 +11,9 @@
   <link href="${conPath }/css/style.css" rel="stylesheet">
 </head>
 <body>
-  <form action="ex11_visitNumChoose.jsp">
-  	방문횟수<input type="number" name="visitNum" required="required">
-  	<input type="submit">  
-  </form>
+	<form action="ex1.Encoding.jsp" method="post">
+		이름<input type="text" name="name">
+		<input type="submit">
+	</form>  
 </body>
 </html>
