@@ -298,9 +298,9 @@ public class BoardDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE BOARD " + 
-				" SET BNAME = ? " + 
-				" BTITLE = ? " + 
-				" BCONTENT = ? " + 
+				" SET BNAME = ? ," + 
+				" BTITLE = ? ," + 
+				" BCONTENT = ? ," + 
 				" BIP = ? " + 
 				" WHERE BID = ? ";
 		try {
