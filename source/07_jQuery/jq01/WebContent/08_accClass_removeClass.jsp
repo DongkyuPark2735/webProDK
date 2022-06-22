@@ -19,6 +19,7 @@
 	<script>
 		$(document).ready(function() {
 			$('td').click(function () {
+				alert('1');
 				//$('td')on('click', function)
 				$('td').removeClass('tdRed'); 
 				$(this).addClass('tdRed');

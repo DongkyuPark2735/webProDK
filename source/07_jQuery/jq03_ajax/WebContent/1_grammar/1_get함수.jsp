@@ -21,7 +21,10 @@
 			} else {
 				$.get('idConfirm1.jsp?mid=' + mid, function(data, status) { // data body 다들어옴
 					if (status == 'success') {
+						alert(data);
+						
 						$('#result').html(data);
+															//태그의 결과값  html로 받아야 태그가 실행된 후 값들어옴 
 					}
 				});
 			}
