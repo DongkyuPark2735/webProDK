@@ -89,8 +89,8 @@
 </head>
 <link href="${conPath }/css/style.css" rel="stylesheet">
 <body>
-<jsp:include page="header.jsp"/>
- <form action="${conPath }/mjoin.do" method="post" enctype="multipart/form-data">
+<jsp:include page="/main/header.jsp"/>
+ <form action="${conPath }/join.do" method="post" enctype="multipart/form-data">
   	<table>
   		<caption>회원가입</caption>
   		<tr>
@@ -138,12 +138,12 @@
   		</tr>
   		<tr>
   			<td colspan="2">
-			  	<input type="submit" value="회원가입" >
+			  	<input type="submit" value="회원가입"  >
 			  	<input type="button" value="로그인" onclick="location='${conPath}/loginView.do'">
   			</td>
   		</tr>
   	</table>
   </form>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="/main/footer.jsp"/>
 </body>
 </html>

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lec.memberDAO.MemberDAO;
 
-public class emailChkService implements Service {
+public class EmailChkService implements Service {
 
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
