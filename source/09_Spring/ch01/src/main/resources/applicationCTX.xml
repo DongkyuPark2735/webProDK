@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 		id나 name둘다가능						매개변수 없는 생성자 없으면 오류 -->
+	<bean id="calculation" class="com.lec.ch01.Calculation">
+<!-- 			getter로 호출됨  getter가 있는 필드만 호출-->
+<!-- 어디다 셋팅됨? 자바로 바뀌는건지 어떤 공간에 만들어 져있는지 -->
+		<property name="num1">
+			<value>500</value>
+		</property>
+		<property name="num2">
+			<value>100</value>
+		</property>
+	</bean>
+</beans>

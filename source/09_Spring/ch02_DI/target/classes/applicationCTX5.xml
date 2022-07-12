@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 	<bean id="exam" class="com.lec.ch02.ex5_exam.ExamImpl"> -->
+<!-- 		<property name="name" value="홍길동"/> -->
+<!-- 		<property name="kor" value="99"/> -->
+<!-- 		<property name="eng" value="98"/> -->
+<!-- 		<property name="mat" value="100"/> -->
+<!-- 		<property name="computer" value="94"/> -->
+<!-- 	</bean> -->
+	<bean name="ExamModify" class="com.lec.ch02.ex5_exam.ExamModify">
+		<property name="name" value="김길동"/>
+		<property name="kor" value="80"/>
+		<property name="eng" value="90"/>
+		<property name="mat" value="70"/>
+	</bean>
+
+	<bean id="examConsole" class="com.lec.ch02.ex5_exam.ExamConsoleImpl">
+		<constructor-arg ref="ExamModify"/>
+	</bean>
+	
+</beans>
