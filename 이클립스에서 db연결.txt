@@ -1,0 +1,9 @@
+data s e 
+오른쪽 뉴 
+
+oracle
+
+타입에 thin 11 
+
+jar에 jar oracle 6 경로 
+

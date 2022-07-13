@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+		
+		
+		<bean id="student" class="com.lec.ch05.ex1.Student">
+			<property name="name" value="홍길동"/>
+			<property name="age" value="12"/>
+			<property name="gradeNum" value="5"/>
+			<property name="classNum" value="6"/>
+		</bean>
+		<bean id="worker" class="com.lec.ch05.ex1.Worker">
+			<property name="name" value="홍일꾼"/>
+			<property name="age" value="30"/>
+			<property name="job" value="개발자"/>
+		</bean>
+
+		<bean id="proxyClass" class="com.lec.ch05.ex1.ProxyClass"/>
+		
+		<aop:config><!--  -->
+			<aop:aspect id="aroundAspect" ref="proxyClass"><!--공통기능  -->
+					<!-- within() == ()안에 있는 함수 -->
+				<aop:pointcut expression="within(com.lec.ch05.ex1.*)" id="aroundM"/><!-- 핵심기능으로 넣을 것들 -->
+				<aop:pointcut expression="within(com.lec.ch05.ex1.*)" id="aroundM"/><!-- 핵심기능으로 넣을 것들 -->
+				<aop:around method="aroundAdvice" pointcut-ref="aroundM"/>
+			</aop:aspect>
+		</aop:config>
+
+
+
+</beans>
+
+
+

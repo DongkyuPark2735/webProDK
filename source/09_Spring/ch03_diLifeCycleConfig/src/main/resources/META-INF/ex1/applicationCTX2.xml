@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="family1" class="com.lec.ch03.ex1.Family" 
+		c:papaName="홍길동" c:mamiName="헝엄마" p:brotherName="홍아들" p:sisterName="홍딸램"/>	
+
+	<bean id="fam" class="com.lec.ch03.ex1.Family">
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="홍엄마"/>
+		<property name="sisterName" value="홍아들"/>
+		<property name="brotherName" value="홍딸램"/>
+	</bean>
+</beans>
