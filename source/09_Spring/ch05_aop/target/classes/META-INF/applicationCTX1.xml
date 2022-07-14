@@ -24,13 +24,31 @@
 			<aop:aspect id="aroundAspect" ref="proxyClass"><!--공통기능  -->
 					<!-- within() == ()안에 있는 함수 -->
 				<aop:pointcut expression="within(com.lec.ch05.ex1.*)" id="aroundM"/><!-- 핵심기능으로 넣을 것들 -->
-				<aop:pointcut expression="within(com.lec.ch05.ex1.*)" id="aroundM"/><!-- 핵심기능으로 넣을 것들 -->
 				<aop:around method="aroundAdvice" pointcut-ref="aroundM"/>
 			</aop:aspect>
+			<aop:aspect id="beforeAspect" ref="proxyClass"> 
+						<!-- execution (리턴타입 )-->
+				<aop:pointcut expression="execution(void com.lec.ch05.ex1.Worker.*() )" id="beforeM"/>
+						<!-- expression에서 joinpoint를 설정 3종류 있다 -->
+				<aop:before method="beforeAdvice" pointcut-ref="beforeM"/>							
+			</aop:aspect>			
+			
+			<aop:aspect id="afterAspect" ref="proxyClass">
+				<aop:pointcut expression="bean(stu*)" id="afterM"/>
+				<aop:after method="afterAdvice" pointcut-ref="afterM"/>
+			</aop:aspect>
+			
+			<aop:aspect id="afterReturningAspect" ref="proxyClass">
+				<aop:pointcut expression="within(com.lec.ch05.ex1.*)" id="afterReturningM"/>
+				<aop:after-returning method="afterReturningAdvice" pointcut-ref="afterReturningM"/>
+			</aop:aspect>
+			
+			<aop:aspect id="afterThrowingAspect" ref="proxyClass">
+				<aop:pointcut expression="within(com.lec.ch05.ex1.*)" id="afterThrowingM"/>
+				<aop:after-throwing method="afterThrowingAdvice" pointcut-ref="afterThrowingM"/>
+			</aop:aspect>
+			
 		</aop:config>
-
-
-
 </beans>
 
 

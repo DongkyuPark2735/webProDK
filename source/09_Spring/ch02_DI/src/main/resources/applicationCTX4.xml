@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 <!-- 	<bean id="vh" class="com.lec.ch02.ex4_vehicle.Airplane"/> -->
 <!-- 	<bean id="vh" class="com.lec.ch02.ex4_vehicle.Car"/> -->
@@ -11,5 +13,4 @@
 		<property name="vehicle" value="제트기"/>
 		<property name="speed" value="1000"/>
 	</bean>
-	
 </beans>
