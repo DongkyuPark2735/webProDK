@@ -8,7 +8,7 @@ public class VehicleTestMain {
 		String location = "classpath:applicationCTX4.xml";
 //		AbstractApplicationContext는 추상클래스?
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(location);
-		Vehicle vh = ctx.getBean("vh", Vehicle.class);
+		Vehicle vh = ctx.getBean("vh", VehicleImpl.class);
 		vh.ride("박동규");
 		ctx.close();
 	}
