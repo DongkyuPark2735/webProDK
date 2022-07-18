@@ -26,4 +26,5 @@
     <!--
     <Manager pathname="" />
     -->
+    <Resource username="scott" url="jdbc:oracle:thin:@localhost:1521:xe" type="javax.sql.DataSource" password="tiger" name="jdbc/Oracle11g" maxWait="1000" maxActive="10" driverClassName="oracle.jdbc.driver.OracleDriver" auth="Container"/>
 </Context>
