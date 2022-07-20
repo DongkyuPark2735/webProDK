@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+	<!-- sql문의 결과값을 받을수 있는 클래스 타입 설정해준다 -->
+		<typeAlias type="com.lec.ch14.dto.Dept" alias="Dept"/>
+		<typeAlias type="com.lec.ch14.dto.Emp" alias="Emp"/>
+	</typeAliases>
+	
+	
+	<mappers> <!-- 맵퍼 2개 선언   -->
+		<mapper resource="META-INF/sqlmap/mappers/Dept.xml" />
+		<mapper resource="META-INF/sqlmap/mappers/Emp.xml" />
+	</mappers>
+		
+</configuration>
+
+    
