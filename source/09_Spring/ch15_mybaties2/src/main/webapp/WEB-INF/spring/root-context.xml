@@ -15,14 +15,15 @@
 			<property name="password" value="${db.password}"/>
 		</bean>
 		
-		
 		<!-- SqlSessionFactoryBean 빈 필요 -->
-<!-- 		<bean id="" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
-			
-<!-- 		</bean> -->
+		<bean id="sessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"/>
+			<property name="configLocation" value="classpath:META-INF/sqlmap/config/mybaties_config.xml"/>
+																			<!-- 매퍼는 classpath붙이지말것 -->
+		</bean>
 		
 		<!-- SqlSessionTemplate 빈 필요  -->
-		
-		
-		
+		<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+			 <constructor-arg index="0" name="sqlSessionFactory" ref="sessionFactoryBean"/>		
+		</bean>
 </beans>
