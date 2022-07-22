@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.ch14.dao.EmpDao" > <!-- 설정한 엘리어스 사용범위? -->
+<!-- config의 alias 쓸수없나? -->
+	<resultMap type="Emp" id="EmpResult">
+		<result property="empno" column="empno"/>
+		<result property="ename" column="ename"/>
+		<result property="job" column="job"/>
+		<result property="mgr" column="mgr"/>
+		<result property="hiredate" column="hiredate"/>
+		<result property="sal" column="sal"/>
+		<result property="comm" column="comm"/>
+		<result property="deptno" column="deptno"/>
+	</resultMap>
+	
+	<select id="empList" parameterType="Emp" resultMap="EmpResult">
+											<!-- 입력받을 파라미터 타입 --><!-- 위에 설정한 resultMap -->
+		SELECT * FROM EMP WHERE 1 = 1 
+		<if test="ename != null and ename != ''">
+	    AND ENAME LIKE '%'||#{ename}||'%' 
+		</if>
+		<if test="job != null and job != ''">
+	    AND JOB LIKE '%'||#{job}||'%'
+		</if>
+		<if test="deptno != 0">
+	    AND DEPTNO = #{deptno}
+		</if>
+	<!-- 세미콜론 없이 와야함 -->
+	</select>
+</mapper>

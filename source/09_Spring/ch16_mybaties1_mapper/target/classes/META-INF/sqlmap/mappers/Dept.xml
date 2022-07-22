@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.ch14.dao.DeptDao">
+
+	<!-- 타입에 모든경로 con.lec. .... -->
+	<resultMap type="Dept" id="DeptResult"> <!-- dto -->
+		<result property="deptno" column="deptno"/>
+		<!-- sql결과의 필드명 -->
+		<result property="dname" column="dname"/>
+		<result property="loc" column="loc"/>
+	</resultMap>
+	
+	<!--select문 이어서 select태그 -->
+	<select id="deptList" resultMap="DeptResult"><!-- 결과가 resultMap에 설정된 id의 값에 담긴다 -->
+	<![CDATA[
+		SELECT * FROM DEPT
+	]]> <!-- sql문 인식하게 ??? -->
+	</select>
+
+
+</mapper>
