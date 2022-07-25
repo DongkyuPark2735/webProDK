@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.ch19.dao.MemberDAO">
+	<resultMap type="member" id="memberResult">
+		<result property="mid" column="mid"/>
+		<result property="mpw" column="mpw"/>
+		<result property="mname" column="mname"/>
+		<result property="mmail" column="mmail"/>
+		<result property="mpost" column="mpost"/>
+		<result property="maddr" column="maddr"/>
+	</resultMap>
+
+	<select id="idConfirm" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM MEMBER WHERE MID=#{mid}
+	</select>
+	
+	<insert id="joinMember" parameterType="member">
+		INSERT INTO MEMBER(MID, MPW, MNAME, MMAIL, MPOST, MADDR) 
+		    VALUES(#{bid}, #{mpw}, #{mname}, #{mmail}, #{mpost}, #{maddr})
+	</insert>
+
+	<select id="getMember" resultMap="memberResult" parameterType="String"> 
+		SELECT * FROM MEMBER WHERE MID = #{mid}
+	</select> 
+ 
+	<update id="modifyMember" parameterType="member">
+		UPDATE MEMBER SET MPW = #{mpw},
+			MNAME = #{mname},
+		  MMAIL = #{mmail},
+		  MPOST = #{mpost},
+		  MADDR = #{maddr}
+		  WHERE MID = #{mid}
+	</update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
