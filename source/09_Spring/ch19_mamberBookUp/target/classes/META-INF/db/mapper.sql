@@ -41,12 +41,20 @@ INSERT INTO BOOK(BNUM, BTITLE, BWRITER, BRDATE, BIMG1, BINFO)
 -- modifyBook
 UPDATE BOOK SET BTITLE = 'JSP1',
                         BWRITER = '홍제이',
+                        BRDATE = '22/07/04',
                         BIMG1 = 'noImg.png',
                         BIMG2 = 'noImg.png',
                         BINFO = '스프링 개념서 1'
                     WHERE BNUM = 1;
         
 SELECT * FROM BOOK;
+COMMIT;
+
+-- 검색 
+
+SELECT * FROM BOOK WHERE 1=1 AND BTITLE LIKE '%'||UPPER('jsp')||'%' AND BWRITER LIKE  '%'||'홍'||'%';
+
+
 
 
 

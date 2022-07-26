@@ -17,7 +17,7 @@
 	
 	<insert id="joinMember" parameterType="member">
 		INSERT INTO MEMBER(MID, MPW, MNAME, MMAIL, MPOST, MADDR) 
-		    VALUES(#{bid}, #{mpw}, #{mname}, #{mmail}, #{mpost}, #{maddr})
+		    VALUES(#{mid}, #{mpw}, #{mname}, #{mmail}, #{mpost}, #{maddr})
 	</insert>
 
 	<select id="getMember" resultMap="memberResult" parameterType="String"> 

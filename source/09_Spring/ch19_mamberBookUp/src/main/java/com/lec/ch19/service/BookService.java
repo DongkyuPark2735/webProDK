@@ -15,5 +15,5 @@ public interface BookService {
 //	public int registerBook(MultipartHttpServletRequest mReques); 선호하지않음
 	public int modifyBook(Book book, MultipartHttpServletRequest mReques); 
 //	public int modifyBook(MultipartHttpServletRequest mReques); 
-
+	public List<Book> searchList(String pageNum, Book book); 
 }

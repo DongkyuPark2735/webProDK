@@ -50,6 +50,13 @@ UPDATE BOOK SET BTITLE = 'JSP1',
 SELECT * FROM BOOK;
 COMMIT;
 
+-- 검색 
+
+SELECT * FROM BOOK WHERE 1=1 AND BTITLE LIKE '%'||UPPER('jsp')||'%' AND BWRITER LIKE  '%'||'홍'||'%';
+
+
+
+
 
 
 

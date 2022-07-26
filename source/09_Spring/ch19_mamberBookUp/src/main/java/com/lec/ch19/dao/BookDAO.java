@@ -14,4 +14,6 @@ public interface BookDAO {
 	public Book getDetailBook(int bnum); 
 	public int registerBook(Book book); 
 	public int modifyBook(Book book); 
+	public List<Book> searchList(Book book); 
+	
 }

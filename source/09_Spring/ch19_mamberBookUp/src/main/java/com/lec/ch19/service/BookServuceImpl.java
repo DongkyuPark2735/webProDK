@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,9 +84,6 @@ public class BookServuceImpl implements BookService {
 		book.setBimg2(bimg[1]);
 		return bookdao.registerBook(book);
 	}
-
-	
-	
 	
 	@Override
 	public int modifyBook(Book book, MultipartHttpServletRequest mReques) {
@@ -120,12 +118,9 @@ public class BookServuceImpl implements BookService {
 			}
 			idx++;
 		}//whlie
-		
 		book.setBimg1(bimg[0]); 
 		book.setBimg2(bimg[1]);
-		
 		return bookdao.modifyBook(book);
-
 	}
 
 	private boolean filecopy(String serverFile, String backupFile) {
@@ -155,6 +150,19 @@ public class BookServuceImpl implements BookService {
 			}
 		}
 		return isCopy;
+	}
+
+	@Override
+	public List<Book> searchList(String pageNum, Book book) {
+		Paging paging = new Paging(bookdao.totCntBook(), pageNum, 3, 3); 
+		Book tmpbook = new Book();
+		
+		tmpbook.setStartRow(paging.getStartRow());
+		tmpbook.setEndRow(paging.getEndRow());
+		tmpbook.setSearchStr(book.getSearchStr());
+		tmpbook.setBsearch(book.getBsearch());
+		
+		return bookdao.bookList(tmpbook);
 	}
 }
 

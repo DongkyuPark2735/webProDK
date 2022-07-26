@@ -56,6 +56,38 @@ header .lnb a {
 </style>
 </head>
 <body>
+<c:if test="${not empty loginResult}">
+	<c:if test="${loginResult eq '로그인 성공'}">
+		<script>
+				alert('${loginResult}');	
+				console.log(${member.mname});
+				console.log(${sessionScope.member});
+				console.log(${member.mid});
+		</script>
+	</c:if>
+	<c:if test="${loginResult != '로그인 성공'}">
+		<script>
+			 alert('${loginResult}');	
+			 history.back();	
+		</script>
+	</c:if>
+</c:if>
+
+
+<c:if test="${not empty logoutResult}">
+	<script>
+		 alert('${logoutResult}');	
+	</script>
+</c:if>
+
+
+<c:if test="${not empty joinResult}">
+	<script>
+		 alert('회원 가입 되었습니다.');	
+	</script>
+</c:if>
+
+
 <header>
 	<div class="gnb">
 	<c:if test="${empty member}">

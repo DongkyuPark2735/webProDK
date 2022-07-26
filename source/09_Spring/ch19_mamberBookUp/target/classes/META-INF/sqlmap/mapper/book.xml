@@ -64,6 +64,33 @@
 		                    WHERE BNUM = #{bnum}
 	</update>
 	
+	<select id="searchList" parameterType="book" resultMap="bookResult">
+			<if test="bsearch == 'both'">
+				SELECT * FROM( SELECT ROWNUM RN, B.*
+	      	FROM(SELECT * FROM BOOK WHERE BTITLE LIKE '%'||UPPER(#{searchStr})||'%' OR BWRITER LIKE '%'||#{searchStr}||'%' ORDER BY BTITLE) B)
+	        	WHERE RN BETWEEN #{startRow} AND #{endRow}
+			</if>
+			<if test="bsearch == 'bookOnly'">
+				SELECT * FROM( SELECT ROWNUM RN, B.*
+	      	FROM(SELECT * FROM BOOK WHERE BTITLE LIKE '%'||UPPER(#{searchStr})||'%' ORDER BY BTITLE) B)
+	        	WHERE RN BETWEEN #{startRow} AND #{endRow}
+			</if>
+			<if test="bsearch == 'writerOnly'">
+				SELECT * FROM( SELECT ROWNUM RN, B.*
+	      	FROM(SELECT * FROM BOOK WHERE BWRITER LIKE '%'||#{searchStr}||'%' ORDER BY BTITLE) B)
+	        	WHERE RN BETWEEN #{startRow} AND #{endRow}
+			</if>
+			<if test="bsearch == '' or bsearch == null">
+				SELECT * FROM( SELECT ROWNUM RN, B.*
+	      	FROM(SELECT * FROM BOOK WHERE BTITLE LIKE '%'||UPPER(#{searchStr})||'%' OR BWRITER LIKE '%'||#{searchStr}||'%' ORDER BY BTITLE) B)
+	        	WHERE RN BETWEEN #{startRow} AND #{endRow}
+			</if>
+			
+	</select>
+	
+	
+	
+	
 </mapper>
 
 

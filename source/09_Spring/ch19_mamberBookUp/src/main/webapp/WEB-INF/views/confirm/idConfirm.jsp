@@ -6,11 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-
+	${idConfirmResult }
 </body>
 </html>

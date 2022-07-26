@@ -15,6 +15,8 @@ public class Book {
 	private String binfo;
 	private int startRow;
 	private int endRow;
+	private String bsearch;
+	private String searchStr;
 }
 
 
