@@ -38,9 +38,48 @@ INSERT INTO BOOK(BNUM, BTITLE, BWRITER, BRDATE, BIMG2, BINFO)
 INSERT INTO BOOK(BNUM, BTITLE, BWRITER, BRDATE, BIMG1, BIMG2, BINFO) 
     VALUES(BOOK_SQ.NEXTVAL, 'ORACLE', '최제이', SYSDATE, 'noImg.png', 'noImg.png', 'ORACLE 개념서');
 
-
-
+select * from member;
+commit;
 -- DUMMY DATA INSERT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- admin
+DROP TABLE DVADMIN;
+CREATE TABLE DVADMIN(
+    ADID VARCHAR2(10) PRIMARY KEY,
+    ADPW VARCHAR2(30) NOT NULL,
+    ADNAME VARCHAR2(15) NOT NULL
+    
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

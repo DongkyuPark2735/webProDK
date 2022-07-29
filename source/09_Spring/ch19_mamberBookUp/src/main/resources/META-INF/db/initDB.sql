@@ -45,3 +45,42 @@ commit;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+-- admin
+DROP TABLE DVADMIN;
+CREATE TABLE DVADMIN(
+    ADID VARCHAR2(10) PRIMARY KEY,
+    ADPW VARCHAR2(30) NOT NULL,
+    ADNAME VARCHAR2(15) NOT NULL
+    
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
